@@ -38,7 +38,7 @@ import exaliquo.data.ExATab;
 import exaliquo.data.OreDictDrops;
 import exaliquo.proxy.ForestryReflection;
 
-@Mod(modid = ExAliquo.modID, name = "Ex Aliquo", version = "0.11.2", dependencies = "required-after:exnihilo@[1.26b,);after:TConstruct@(1.5.2,];after:Natura@[2.1.14,);after:arsmagica2;after:Thaumcraft@[4.1,);after:Growthcraft|Apples;after:Growthcraft|Bamboo;after:Growthcraft|Bees;after:Growthcraft|Grapes;after:Growthcraft|Hops;after:Growthcraft|Rice;after:Mariculture@[1.2.2,);after:MineFactoryReloaded;after:NetherOres;after:Metallurgy3Base;after:ExtraTiC;after:Forestry;after:ExtraTrees;after:pamharvestcraft;after:ThermalExpansion")
+@Mod(modid = ExAliquo.modID, name = "Ex Aliquo", version = "0.11.2", dependencies = "required-after:exnihilo@[1.36,);after:TConstruct@(1.5.2,];after:Natura@[2.1.14,);after:arsmagica2;after:Thaumcraft@[4.1,);after:Growthcraft|Apples;after:Growthcraft|Bamboo;after:Growthcraft|Bees;after:Growthcraft|Grapes;after:Growthcraft|Hops;after:Growthcraft|Rice;after:Mariculture@[1.2.2,);after:MineFactoryReloaded;after:NetherOres;after:Metallurgy3Base;after:ExtraTiC;after:Forestry;after:ExtraTrees;after:pamharvestcraft;after:ThermalExpansion")
 
 public class ExAliquo {
 
