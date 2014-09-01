@@ -1,7 +1,7 @@
 package exaliquo;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -39,14 +39,16 @@ import exaliquo.data.OreDictDrops;
 import exaliquo.proxy.ForestryReflection;
 import static exaliquo.data.ModsLoaded.*;
 
-@Mod(modid = "exaliquo", name = "Ex Aliquo", version = "0.11.2", dependencies = "required-after:exnihilo@[1.26b,);after:TConstruct@(1.5.2,];after:Natura@[2.1.14,);after:arsmagica2;after:Thaumcraft@[4.1,);after:Growthcraft|Apples;after:Growthcraft|Bamboo;after:Growthcraft|Bees;after:Growthcraft|Grapes;after:Growthcraft|Hops;after:Growthcraft|Rice;after:Mariculture@[1.2.2,);after:MineFactoryReloaded;after:NetherOres;after:Metallurgy3Base;after:ExtraTiC;after:Forestry;after:ExtraTrees;after:pamharvestcraft;after:ThermalExpansion")
+@Mod(modid = ExAliquo.modID, name = "Ex Aliquo", version = "0.11.2", dependencies = "required-after:exnihilo@[1.26b,);after:TConstruct@(1.5.2,];after:Natura@[2.1.14,);after:arsmagica2;after:Thaumcraft@[4.1,);after:Growthcraft|Apples;after:Growthcraft|Bamboo;after:Growthcraft|Bees;after:Growthcraft|Grapes;after:Growthcraft|Hops;after:Growthcraft|Rice;after:Mariculture@[1.2.2,);after:MineFactoryReloaded;after:NetherOres;after:Metallurgy3Base;after:ExtraTiC;after:Forestry;after:ExtraTrees;after:pamharvestcraft;after:ThermalExpansion")
 
-public class exaliquo {
+public class ExAliquo {
 
-	@Instance("exaliquo")
-	public static exaliquo instance;
+	@Instance(ExAliquo.modID)
+	public static ExAliquo instance;
 	
-	public static final Logger logger = Logger.getLogger("exaliquo");
+	public static final String modID = "exaliquo";
+	
+	public static final Logger logger = LogManager.getLogger(ExAliquo.modID);
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -84,47 +86,47 @@ public class exaliquo {
 		OreDictDrops.CheckMetals();
 		if (isTConLoaded)
 		{
-			exaliquo.logger.log(Level.INFO,"Loading Tinker's Construct Compat");
+		    ExAliquo.logger.info("Loading Tinker's Construct Compat");
 			TConstruct.initTConstruct();
 		}
 		if (isNaturaLoaded)
 		{
-			exaliquo.logger.log(Level.INFO,"Loading Natura Compat");
+		    ExAliquo.logger.info("Loading Natura Compat");
 			Natura.initNatura();
 		}
 		if (isArsMagicaLoaded)
 		{
-			exaliquo.logger.log(Level.INFO,"Loading Ars Magica 2 Compat");
+		    ExAliquo.logger.info("Loading Ars Magica 2 Compat");
 			ArsMagica.initArsMagica();
 		}
 		if (isThaumcraftLoaded)
 		{
-			exaliquo.logger.info("Loading Thaumcraft 4 Compat");
+		    ExAliquo.logger.info("Loading Thaumcraft 4 Compat");
 			Thaumcraft.initThaumcraft();
 		}
 		if(isGrowthcraftLoaded)
 		{
-			exaliquo.logger.info("Loading Growthcraft Compat");
+		    ExAliquo.logger.info("Loading Growthcraft Compat");
 			Growthcraft.initGrowthcraft();
 		}
 		if (isMaricultureLoaded)
 		{
-			exaliquo.logger.info("Loading Mariculture Compat");
+		    ExAliquo.logger.info("Loading Mariculture Compat");
 			Mariculture.initMariculture();
 		}
 		if (isMFRLoaded)
 		{
-			exaliquo.logger.info("Loading MFR Compat");
+		    ExAliquo.logger.info("Loading MFR Compat");
 			MineFactoryReloaded.initMFR();
 		}
 		if (isMetallurgyLoaded)
 		{
-			exaliquo.logger.info("Loading Metallurgy Compat");
+		    ExAliquo.logger.info("Loading Metallurgy Compat");
 			Metallurgy.initMetallurgy();
 		}
 		if (isDartcraftLoaded)
 		{
-			exaliquo.logger.info("Loading Dartcraft Compat");
+		    ExAliquo.logger.info("Loading Dartcraft Compat");
 			Dartcraft.initDartcraft();
 		}
 		if (isForestryLoaded)
@@ -133,7 +135,7 @@ public class exaliquo {
 		}
 		if (isThermalExpansionLoaded)
 		{
-			exaliquo.logger.info("Loading Thermal Expansion Compat");
+		    ExAliquo.logger.info("Loading Thermal Expansion Compat");
 			ThermalExpansion.initThermalExpansion();
 		}
 	}
