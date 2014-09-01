@@ -11,7 +11,7 @@ public class MetallurgyBridge
 {
     public static final String PULSE_ID = "ExAliquo Metallurgy Module";
     
-    public static final String MOD_ID = "Metallurgy3Base";
+    public static final String MOD_ID = "Metallurgy";
 
     @Handler
 	public void postInit(FMLPostInitializationEvent event)

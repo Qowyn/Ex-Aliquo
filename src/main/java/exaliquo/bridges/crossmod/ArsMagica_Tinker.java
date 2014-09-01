@@ -14,12 +14,12 @@ import exaliquo.bridges.ArsMagica.ArsMagicaBridge;
 import exaliquo.bridges.TConstruct.TConstructBridge;
 import exaliquo.data.ModIDs.Info;
 
-@Pulse(id = ArsMagica_Tinker.PULSE_ID, pulsesRequired = ArsMagica_Tinker.REQUIRED_PULSES)
+@Pulse(id = ArsMagica_Tinker.PULSE_ID, modsRequired = ArsMagica_Tinker.REQUIRED_MODS)
 public class ArsMagica_Tinker
 {
-    public static final String PULSE_ID = "ExAliquo ArsMagic TConstruct Module";
+    public static final String PULSE_ID = "ExAliquo ArsMagica TConstruct Module";
     
-    public static final String REQUIRED_PULSES = ArsMagicaBridge.PULSE_ID + ";" + TConstructBridge.PULSE_ID;
+    public static final String REQUIRED_MODS = ArsMagicaBridge.MOD_ID + ";" + TConstructBridge.MOD_ID;
 
     @Handler
 	public void postInit(FMLPostInitializationEvent event)
