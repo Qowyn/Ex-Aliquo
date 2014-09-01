@@ -1,10 +1,6 @@
 package exaliquo;
 
-import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItemStack;
-
-import org.lwjgl.opengl.Display;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -14,17 +10,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
-import exaliquo.blocks.*;
-import exaliquo.bridges.TConstruct.SkyModifiers;
-import exaliquo.bridges.TConstruct.Modifiers.ModCrooked;
-import exaliquo.bridges.TConstruct.Modifiers.ModHammered;
+import exaliquo.blocks.AliquoOre;
+import exaliquo.blocks.BlockEndCake;
+import exaliquo.blocks.BlockEndEye;
 import exaliquo.data.AliquoMaterial;
-import exaliquo.data.Configurations;
 import exaliquo.data.ExAOreTab;
 import exaliquo.data.ExATab;
-import exaliquo.data.OreDict;
-import static exaliquo.data.ModIDs.getItem;
 import exaliquo.data.ModIDs.Info;
+import exaliquo.data.ModsLoaded;
 import exaliquo.items.AliquoHammer;
 import exaliquo.items.AliquoItemOre;
 import exaliquo.items.DragonEgg;
@@ -33,7 +26,6 @@ import exaliquo.items.HayCrook;
 import exaliquo.items.ReedCrook;
 import exaliquo.items.ThaumiumHammer;
 import exaliquo.items.blocks.ItemBlockOre;
-import exaliquo.data.ModsLoaded;
 
 public class Registries
 {

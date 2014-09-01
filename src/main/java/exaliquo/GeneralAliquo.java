@@ -1,23 +1,19 @@
 package exaliquo;
 
-import static exnihilo.registries.HammerRegistry.register;
-
 import java.util.ArrayList;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import exaliquo.bridges.crossmod.Whenk;
 import exaliquo.data.Configurations;
 import exaliquo.data.ModsLoaded;
-import exaliquo.data.ModIDs.Info;
 import exnihilo.registries.ColorRegistry;
 import exnihilo.registries.CompostRegistry;
 import exnihilo.registries.HammerRegistry;
 import exnihilo.registries.SieveRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class GeneralAliquo
 {

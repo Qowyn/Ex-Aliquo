@@ -4,7 +4,6 @@ import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItem;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import exaliquo.Registries;
 import exaliquo.data.Configurations;
 import exaliquo.data.ModIDs.Info;
 import exnihilo.registries.SieveRegistry;

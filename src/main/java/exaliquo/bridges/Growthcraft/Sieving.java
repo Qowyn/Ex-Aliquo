@@ -2,11 +2,9 @@ package exaliquo.bridges.Growthcraft;
 
 import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItem;
-import net.minecraft.block.Block;
+import static exnihilo.registries.SieveRegistry.register;
 import net.minecraft.init.Blocks;
 import exaliquo.data.ModIDs.Info;
-import exnihilo.registries.SieveRegistry;
-import static exnihilo.registries.SieveRegistry.register;
 
 public class Sieving
 {

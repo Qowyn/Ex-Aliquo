@@ -1,7 +1,5 @@
 package exaliquo.data;
 
-import java.util.EnumSet;
-
 import cpw.mods.fml.common.gameevent.TickEvent.RenderTickEvent;
 
 public class AliquoTickHandler

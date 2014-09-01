@@ -1,17 +1,10 @@
 package exaliquo.bridges.crossmod;
 
-import java.util.Arrays;
-
-//import powercrystals.netherores.NetherOresCore;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
 import exaliquo.data.Configurations;
-import exaliquo.data.ModIDs.Info;
-import static exnihilo.registries.HammerRegistry.register;
+//import powercrystals.netherores.NetherOresCore;
 
 public class NetherOres_Thaumcraft
 {

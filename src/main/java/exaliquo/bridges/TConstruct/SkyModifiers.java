@@ -1,7 +1,11 @@
 package exaliquo.bridges.TConstruct;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import static exaliquo.data.ModIDs.getBlock;
+import static exaliquo.data.ModIDs.getItem;
+import static exaliquo.proxy.ForestryReflection.ForestryLeaves;
+import static exaliquo.proxy.ForestryReflection.extras;
+import static exaliquo.proxy.ForestryReflection.forestryrefcheck;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -10,23 +14,17 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.Loader;
 import tconstruct.library.ActiveToolMod;
 import tconstruct.library.tools.AbilityHelper;
 import tconstruct.library.tools.ToolCore;
+import exaliquo.data.ModIDs.Info;
+import exaliquo.data.ModsLoaded;
 import exnihilo.data.ModData;
 import exnihilo.registries.HammerRegistry;
 import exnihilo.registries.helpers.Smashable;
-import exaliquo.data.ModsLoaded;
-import exaliquo.data.ModIDs.Info;
-import static exaliquo.data.ModIDs.getBlock;
-import static exaliquo.data.ModIDs.getItem;
-import static exaliquo.proxy.ForestryReflection.*;
 
 public class SkyModifiers extends ActiveToolMod
 {

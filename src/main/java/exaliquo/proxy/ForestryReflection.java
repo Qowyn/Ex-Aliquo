@@ -1,6 +1,5 @@
 package exaliquo.proxy;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import net.minecraft.block.Block;

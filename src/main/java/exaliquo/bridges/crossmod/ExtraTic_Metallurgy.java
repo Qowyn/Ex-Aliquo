@@ -1,16 +1,14 @@
 package exaliquo.bridges.crossmod;
 
-import static exaliquo.data.ModIDs.getBlock;
-import static exaliquo.data.ModIDs.getItem;
-import static exaliquo.data.MoltenMetals.*;
+import static exaliquo.data.MoltenMetals.dustCostSmeltery;
+import static exaliquo.data.MoltenMetals.ingotCost;
+import static exaliquo.data.MoltenMetals.ingotCostSmeltery;
 import static net.minecraftforge.fluids.FluidRegistry.getFluid;
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import tconstruct.library.crafting.Smeltery;
 import exaliquo.Registries;
 import exaliquo.data.Configurations;
-import exaliquo.data.ModIDs.Info;
 import exnihilo.registries.CrucibleRegistry;
 
 public class ExtraTic_Metallurgy

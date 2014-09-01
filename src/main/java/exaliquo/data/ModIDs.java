@@ -1,8 +1,5 @@
 package exaliquo.data;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import static cpw.mods.fml.common.registry.GameRegistry.findBlock;
 import static cpw.mods.fml.common.registry.GameRegistry.findItem;
 import net.minecraft.block.Block;
@@ -12,7 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import exaliquo.ExAliquo;
-import exaliquo.data.ModIDs.Info;
 
 public class ModIDs
 {

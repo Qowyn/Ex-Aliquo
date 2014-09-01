@@ -2,8 +2,8 @@ package exaliquo.items;
 
 import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItem;
+import static exaliquo.proxy.ForestryReflection.ForestryLeaves;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -11,17 +11,14 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import exaliquo.data.ModIDs.Info;
 import exaliquo.data.ModsLoaded;
 import exnihilo.data.ModData;
 import exnihilo.items.ItemCrook;
-import static exaliquo.proxy.ForestryReflection.*;
 
 public class GoldCrook extends ItemCrook
 {

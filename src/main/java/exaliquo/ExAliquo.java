@@ -1,43 +1,46 @@
 package exaliquo;
 
+import static exaliquo.data.ModsLoaded.isArsMagicaLoaded;
+import static exaliquo.data.ModsLoaded.isDartcraftLoaded;
+import static exaliquo.data.ModsLoaded.isForestryLoaded;
+import static exaliquo.data.ModsLoaded.isGrowthcraftLoaded;
+import static exaliquo.data.ModsLoaded.isMFRLoaded;
+import static exaliquo.data.ModsLoaded.isMaricultureLoaded;
+import static exaliquo.data.ModsLoaded.isMetallurgyLoaded;
+import static exaliquo.data.ModsLoaded.isTConLoaded;
+import static exaliquo.data.ModsLoaded.isThaumcraftLoaded;
+import static exaliquo.data.ModsLoaded.isThermalExpansionLoaded;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.relauncher.Side;
 import exaliquo.bridges.ArsMagica.ArsMagica;
 import exaliquo.bridges.Dart.Dartcraft;
 import exaliquo.bridges.Growthcraft.Growthcraft;
-import exaliquo.bridges.Mariculture.AliquoFish;
 import exaliquo.bridges.Mariculture.Mariculture;
 import exaliquo.bridges.Metallurgy.Metallurgy;
 import exaliquo.bridges.MineFactoryReloaded.MineFactoryReloaded;
 import exaliquo.bridges.Natura.Natura;
 import exaliquo.bridges.TConstruct.TConstruct;
-import exaliquo.bridges.Thaumcraft.ExThaumiquo;
 import exaliquo.bridges.Thaumcraft.Thaumcraft;
 import exaliquo.bridges.ThermalExpansion.ThermalExpansion;
 import exaliquo.bridges.crossmod.Crossmod;
 import exaliquo.data.AliquoEvents;
-import exaliquo.data.Colors;
+import exaliquo.data.AliquoTickHandler;
 import exaliquo.data.Configurations;
 import exaliquo.data.ExAOreTab;
 import exaliquo.data.ExATab;
-import exaliquo.data.AliquoTickHandler;
 import exaliquo.data.OreDictDrops;
 import exaliquo.proxy.ForestryReflection;
-import static exaliquo.data.ModsLoaded.*;
 
 @Mod(modid = ExAliquo.modID, name = "Ex Aliquo", version = "0.11.2", dependencies = "required-after:exnihilo@[1.26b,);after:TConstruct@(1.5.2,];after:Natura@[2.1.14,);after:arsmagica2;after:Thaumcraft@[4.1,);after:Growthcraft|Apples;after:Growthcraft|Bamboo;after:Growthcraft|Bees;after:Growthcraft|Grapes;after:Growthcraft|Hops;after:Growthcraft|Rice;after:Mariculture@[1.2.2,);after:MineFactoryReloaded;after:NetherOres;after:Metallurgy3Base;after:ExtraTiC;after:Forestry;after:ExtraTrees;after:pamharvestcraft;after:ThermalExpansion")
 

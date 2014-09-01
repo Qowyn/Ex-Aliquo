@@ -2,7 +2,6 @@ package exaliquo.bridges.crossmod;
 
 import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItem;
-import static exaliquo.data.MoltenMetals.*;
 import static net.minecraftforge.fluids.FluidRegistry.getFluid;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;

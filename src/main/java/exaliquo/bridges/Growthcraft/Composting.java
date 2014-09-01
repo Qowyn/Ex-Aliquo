@@ -1,11 +1,10 @@
 package exaliquo.bridges.Growthcraft;
 
 import static exaliquo.data.ModIDs.getItem;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import exaliquo.data.ModIDs.Info;
 import static exnihilo.registries.ColorRegistry.color;
 import static exnihilo.registries.CompostRegistry.register;
+import net.minecraft.init.Items;
+import exaliquo.data.ModIDs.Info;
 
 public class Composting
 {
