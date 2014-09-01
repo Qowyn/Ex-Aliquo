@@ -26,7 +26,10 @@ import exaliquo.bridges.Thaumcraft.ThaumcraftBridge;
 import exaliquo.bridges.ThermalExpansion.ThermalExpansionBridge;
 import exaliquo.bridges.crossmod.ArsMagica_Tinker;
 import exaliquo.bridges.crossmod.CropXYZ;
+import exaliquo.bridges.crossmod.ExtraTic_Mekanism;
+import exaliquo.bridges.crossmod.ExtraTic_Metallurgy;
 import exaliquo.bridges.crossmod.NetherOres_Thaumcraft;
+import exaliquo.bridges.crossmod.Whenk;
 import exaliquo.data.AliquoEvents;
 import exaliquo.data.AliquoTickHandler;
 import exaliquo.data.Configurations;
@@ -78,7 +81,10 @@ public class ExAliquo {
 		
 		// Cross-Mod Bridges
 		pulsar.registerPulse(new ArsMagica_Tinker());
+		pulsar.registerPulse(new ExtraTic_Mekanism());
+		pulsar.registerPulse(new ExtraTic_Metallurgy());
 		pulsar.registerPulse(new NetherOres_Thaumcraft());
+		pulsar.registerPulse(new Whenk());
 		
 		pulsar.preInit(event);
 	}

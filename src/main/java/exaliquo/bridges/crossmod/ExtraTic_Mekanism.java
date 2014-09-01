@@ -19,7 +19,7 @@ public class ExtraTic_Mekanism
 {
     public static final String PULSE_ID = "ExAliquo ExtraTic Mekanism Module";
     
-    public static final String REQUIRED_MODS = "ExtraTic;Mekanism";
+    public static final String REQUIRED_MODS = "ExtraTiC;Mekanism";
 
     @Handler
 	public void smeltMekanism(FMLPostInitializationEvent event)
