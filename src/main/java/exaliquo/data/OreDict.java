@@ -2,7 +2,7 @@ package exaliquo.data;
 
 import java.util.ArrayList;
 
-import exaliquo.exaliquo;
+import exaliquo.ExAliquo;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -15,14 +15,17 @@ public class OreDict
 {
 	public static boolean isOreDict(ItemStack itemstack, String name)
 	{
-		if (OreDictionary.getOreName(OreDictionary.getOreID(itemstack)).equals(name))
-		{
-			return true;
-		}
-		else
-		{
-			return ((OreDictionary.getOres(name).isEmpty()) && (itemstack.getItem() == Items.iron_ingot)) ? true : false;
-		}
+	    int[] ids = OreDictionary.getOreIDs(itemstack);
+	    
+        for (int id : ids)
+        {
+            if (OreDictionary.getOreName(id).equals(name))
+            {
+                return true;
+            }
+        }
+
+		return ((OreDictionary.getOres(name).isEmpty()) && (itemstack.getItem() == Items.iron_ingot)) ? true : false;
 	}
 
 	public static ToolMaterial getMaterial(String string)
@@ -49,7 +52,7 @@ public class OreDict
 		{
 			return ores.get(0);
 		}
-		if (warning) exaliquo.logger.warning("ExAliquo could not find the oreDict item called by " + string);
+		if (warning) ExAliquo.logger.warn("ExAliquo could not find the oreDict item called by " + string);
 		return new ItemStack(Blocks.redstone_wire, 1, 0);
 	}
 

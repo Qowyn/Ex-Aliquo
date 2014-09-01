@@ -52,11 +52,11 @@ public class OreDictDrops
 		EXIMITE("ingotEximite","oreEximite",1,Registries.eximiteOreItem,Registries.eximiteOreBlock,-1,end,92),
 		MEUTOITE("ingotMeutoite","oreMeutoite",1,Registries.meutoiteOreItem,Registries.meutoiteOreBlock,-1,end,138),
 		
-		LIMESTONE("blockLimestone","blockLimestone",0,OreDict.getFirstOre("blockLimestone",false).getItem(),OreDict.getBlock(OreDict.getFirstOre("blockLimestone",false)),OreDict.getFirstOre("blockLimestone",false).getItemDamage(),sands,4),
+		/*LIMESTONE("blockLimestone","blockLimestone",0,OreDict.getFirstOre("blockLimestone",false).getItem(),OreDict.getBlock(OreDict.getFirstOre("blockLimestone",false)),OreDict.getFirstOre("blockLimestone",false).getItemDamage(),sands,4),
 		
 		ONYX("gemOnyx","oreOnyx",0,OreDict.getFirstOre("gemOnyx",false).getItem(),OreDict.getBlock(OreDict.getFirstOre("oreOnyx",false)),OreDict.getFirstOre("gemOnyx",false).getItemDamage(),gravel,64),
 		
-		URANIUM("ingotUranium","oreUranium",1,OreDict.getFirstOre("ingotUranium",false).getItem(),OreDict.getBlock(OreDict.getFirstOre("oreUranium",false)),OreDict.getFirstOre("ingotUranium",false).getItemDamage(),sands,48);
+		URANIUM("ingotUranium","oreUranium",1,OreDict.getFirstOre("ingotUranium",false).getItem(),OreDict.getBlock(OreDict.getFirstOre("oreUranium",false)),OreDict.getFirstOre("ingotUranium",false).getItemDamage(),sands,48)*/;
 
 		private final String ingot;
 		private final String ore;

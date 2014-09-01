@@ -1,6 +1,7 @@
 package exaliquo;
 
 import static exaliquo.data.ModIDs.getBlock;
+import static exaliquo.data.ModIDs.getItemStack;
 
 import org.lwjgl.opengl.Display;
 
@@ -340,16 +341,16 @@ public class Registries
 	{
 		for (int i = 0; i < 3; i++)
 		{
-			OreDictionary.registerOre("oreIron", new ItemStack(getBlock(Info.ironore), 1, i));
-			OreDictionary.registerOre("oreGold", new ItemStack(getBlock(Info.goldore), 1, i));
-			OreDictionary.registerOre("oreCopper", new ItemStack(getBlock(Info.copperore), 1, i));
-			OreDictionary.registerOre("oreTin", new ItemStack(getBlock(Info.tinore), 1, i));
-			OreDictionary.registerOre("oreSilver", new ItemStack(getBlock(Info.silverore), 1, i));
-			OreDictionary.registerOre("oreLead", new ItemStack(getBlock(Info.leadore), 1, i));
-			OreDictionary.registerOre("oreNickel", new ItemStack(getBlock(Info.nickelore), 1, i));
-			OreDictionary.registerOre("orePlatinum", new ItemStack(getBlock(Info.platinumore), 1, i));
-			OreDictionary.registerOre("oreAluminum", new ItemStack(getBlock(Info.aluminumore), 1, i));
-			OreDictionary.registerOre("oreAluminium", new ItemStack(getBlock(Info.aluminumore), 1, i));
+			OreDictionary.registerOre("oreIron", getItemStack(Info.ironore, i));
+			OreDictionary.registerOre("oreGold", getItemStack(Info.goldore, i));
+			OreDictionary.registerOre("oreCopper", getItemStack(Info.copperore, i));
+			OreDictionary.registerOre("oreTin", getItemStack(Info.tinore, i));
+			OreDictionary.registerOre("oreSilver", getItemStack(Info.silverore, i));
+			OreDictionary.registerOre("oreLead", getItemStack(Info.leadore, i));
+			OreDictionary.registerOre("oreNickel", getItemStack(Info.nickelore, i));
+			OreDictionary.registerOre("orePlatinum", getItemStack(Info.platinumore, i));
+			OreDictionary.registerOre("oreAluminum", getItemStack(Info.aluminumore, i));
+			OreDictionary.registerOre("oreAluminium", getItemStack(Info.aluminumore, i));
 		}
 	}
 }

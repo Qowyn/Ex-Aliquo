@@ -18,37 +18,7 @@ public class Smelting
 {
 
 	protected static void SmeltTConstruct()
-	{
-		for (int i = 0; i < 3; i++)
-		{
-			Smeltery.addMelting(getBlock(Info.ironore), i, 600, new FluidStack(getFluid("iron.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.goldore), i, 400, new FluidStack(getFluid("gold.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.copperore), i, 550, new FluidStack(getFluid("copper.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.tinore), i, 400, new FluidStack(getFluid("tin.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.silverore), i, 400, new FluidStack(getFluid("silver.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.leadore), i, 400, new FluidStack(getFluid("lead.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.nickelore), i, 400, new FluidStack(getFluid("nickel.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.platinumore), i, 400, new FluidStack(getFluid("platinum.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(getBlock(Info.aluminumore), i, 400, new FluidStack(getFluid("aluminum.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(Registries.cobaltOreBlock, i, 650, new FluidStack(getFluid("cobalt.molten"), ingotCostSmeltery));
-			Smeltery.addMelting(Registries.arditeOreBlock, i, 650, new FluidStack(getFluid("ardite.molten"), ingotCostSmeltery));			
-			
-			if (Configurations.miniSmelting)
-			{
-				CrucibleRegistry.register(getBlock(Info.ironore), i, ingotCost*2, getFluid("iron.molten"), ingotCost, getBlock(Info.ironore));
-				CrucibleRegistry.register(getBlock(Info.goldore), i, ingotCost*2, getFluid("gold.molten"), ingotCost, getBlock(Info.goldore));
-				CrucibleRegistry.register(getBlock(Info.copperore), i, ingotCost*2, getFluid("copper.molten"), ingotCost, getBlock(Info.copperore));
-				CrucibleRegistry.register(getBlock(Info.tinore), i, ingotCost*2, getFluid("tin.molten"), ingotCost, getBlock(Info.tinore));
-				CrucibleRegistry.register(getBlock(Info.silverore), i, ingotCost*2, getFluid("silver.molten"), ingotCost, getBlock(Info.silverore));
-				CrucibleRegistry.register(getBlock(Info.leadore), i, ingotCost*2, getFluid("lead.molten"), ingotCost, getBlock(Info.leadore));
-				CrucibleRegistry.register(getBlock(Info.nickelore), i, ingotCost*2, getFluid("nickel.molten"), ingotCost, getBlock(Info.nickelore));
-				CrucibleRegistry.register(getBlock(Info.platinumore), i, ingotCost*2, getFluid("platinum.molten"), ingotCost, getBlock(Info.platinumore));
-				CrucibleRegistry.register(getBlock(Info.aluminumore), i, ingotCost*2, getFluid("aluminum.molten"), ingotCost, getBlock(Info.aluminumore));
-				CrucibleRegistry.register(Registries.cobaltOreBlock, i, ingotCost*2, getFluid("cobalt.molten"), ingotCost, Registries.cobaltOreBlock);
-				CrucibleRegistry.register(Registries.arditeOreBlock, i, ingotCost*2, getFluid("ardite.molten"), ingotCost, Registries.arditeOreBlock);
-			}
-		}
-		
+	{		
 		if (Configurations.allowDustSmelting)
 		{
 			Smeltery.addMelting(new ItemStack(getItem(Info.irongrav),4,0), getBlock(Info.ironore), 0, 600, new FluidStack(getFluid("iron.molten"), dustCostSmeltery));

@@ -32,7 +32,7 @@ import thaumcraft.api.wands.WandRod;
 import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItem;
 import exaliquo.Registries;
-import exaliquo.exaliquo;
+import exaliquo.ExAliquo;
 import exaliquo.data.Configurations;
 import exaliquo.data.ModIDs.Info;
 
@@ -41,7 +41,7 @@ public class ExThaumiquo
 	
 	protected static void initThaumiquo()
 	{
-		addWorkbenchRecipes();
+		/*addWorkbenchRecipes();
 		addCrucibleRecipes();
 		addArcaneRecipes();
 		addInfusionRecipes();
@@ -51,7 +51,7 @@ public class ExThaumiquo
 		if (Configurations.harderWands)
 		{
 			changePrimalWands();
-		}
+		}*/
 	}
 	
 	static Object findRecipe(String key) {
@@ -386,7 +386,7 @@ public class ExThaumiquo
 	
 	static void changePrimalWands()
 	{
-		exaliquo.logger.log(Level.INFO, "Changing Primal Aspect Wand and Staff Recipes");
+	    ExAliquo.logger.info("Changing Primal Aspect Wand and Staff Recipes");
 		
 		String[] infusionName = { "ROD_obsidian", "ROD_ice", "ROD_quartz", "ROD_reed", "ROD_blaze", "ROD_bone", "ROD_silverwood", "ROD_primal_staff"};
 		String[] infusionRecipe = { "WandRodObsidian", "WandRodIce", "WandRodQuartz", "WandRodReed", "WandRodBlaze", "WandRodBone", "WandRodSilverwood", "WandRodPrimalStaff"};

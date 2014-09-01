@@ -9,79 +9,80 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import exaliquo.exaliquo;
+import exaliquo.ExAliquo;
 import exaliquo.data.ModIDs.Info;
 
 public class ModIDs
 {
 	public enum Info
 	{
-		woodbarrel("crowley.skyblock","block","barrel"),
-		stonebarrel("crowley.skyblock","block","barrel_stone"),
-		crucible("crowley.skyblock","block","crucible"),
-		dust("crowley.skyblock","block","dust"),
-		silkleaves("crowley.skyblock","block","infested_leaves"),
-		beetrap("crowley.skyblock","block","bee_trap"),
-		scentedtrap("crowley.skyblock","block","bee_trap_treated"),
-		witchwater("crowley.skyblock","block","witchwater"),
-		ironore("crowley.skyblock","block","iron_ore"),
-		goldore("crowley.skyblock","block","gold_ore"),
-		copperore("crowley.skyblock","block","copper_ore"),
-		tinore("crowley.skyblock","block","tin_ore"),
-		silverore("crowley.skyblock","block","silver_ore"),
-		leadore("crowley.skyblock","block","lead_ore"),
-		nickelore("crowley.skyblock","block","nickel_ore"),
-		platinumore("crowley.skyblock","block","platinum_ore"),
-		osmiumore("crowley.skyblock","block","osmium_ore"),
-		aluminumore("crowley.skyblock","block","aluminum_ore"),
-		silkworm("crowley.skyblock","item","silkworm"),
-		nomworm("crowley.skyblock","item","silkworm_cooked"),
-		spores("crowley.skyblock","item","spores"),
-		grass("crowley.skyblock","item","seed_grass"),
-		oakseed("crowley.skyblock","item","seed_oak"),
-		zebraseed("crowley.skyblock","item","seed_birch"),
-		spruceseed("crowley.skyblock","item","seed_spruce"),
-		jungleseed("crowley.skyblock","item","seed_jungle"),
-		cactusseed("crowley.skyblock","item","seed_cactus"),
-		caneseed("crowley.skyblock","item","seed_sugar_cane"),
-		carrotseed("crowley.skyblock","item","seed_carrot"),
-		taterseed("crowley.skyblock","item","seed_potato"),
-		rubberseed("crowley.skyblock","item","seed_rubber"),
-		witchbucket("crowley.skyblock","item","bucket_witchwater"),
-		mesh("crowley.skyblock","item","mesh"),
-		irongrav("crowley.skyblock","item","iron_broken"),
-		ironsand("crowley.skyblock","item","iron_crushed"),
-		irondust("crowley.skyblock","item","iron_pulverized"),
-		goldgrav("crowley.skyblock","item","gold_broken"),
-		goldsand("crowley.skyblock","item","gold_crushed"),
-		golddust("crowley.skyblock","item","gold_pulverized"),
-		coppergrav("crowley.skyblock","item","copper_broken"),
-		coppersand("crowley.skyblock","item","copper_crushed"),
-		copperdust("crowley.skyblock","item","copper_pulverized"),
-		tingrav("crowley.skyblock","item","tin_broken"),
-		tinsand("crowley.skyblock","item","tin_crushed"),
-		tindust("crowley.skyblock","item","tin_pulverized"),
-		silvergrav("crowley.skyblock","item","silver_broken"),
-		silversand("crowley.skyblock","item","silver_crushed"),
-		silverdust("crowley.skyblock","item","silver_pulverized"),
-		leadgrav("crowley.skyblock","item","lead_broken"),
-		leadsand("crowley.skyblock","item","lead_crushed"),
-		leaddust("crowley.skyblock","item","lead_pulverized"),
-		nickelgrav("crowley.skyblock","item","nickel_broken"),
-		nickelsand("crowley.skyblock","item","nickel_crushed"),
-		nickeldust("crowley.skyblock","item","nickel_pulverized"),
-		platinumgrav("crowley.skyblock","item","platinum_broken"),
-		platinumsand("crowley.skyblock","item","platinum_crushed"),
-		platinumdust("crowley.skyblock","item","platinum_pulverized"),
-		osmiumgrav("crowley.skyblock","item","osmium_broken"),
-		osmiumsand("crowley.skyblock","item","osmium_crushed"),
-		osmiumdust("crowley.skyblock","item","osmium_pulverized"),
-		aluminumgrav("crowley.skyblock","item","aluminum_broken"),
-		aluminumsand("crowley.skyblock","item","aluminum_crushed"),
-		aluminumdust("crowley.skyblock","item","aluminum_pulverized"),
-		stones("crowley.skyblock","item","stone"),
-		diamondhammer("crowley.skyblock","item","hammer_diamond"),
+		woodbarrel("exnihilo","block","barrel"),
+		stonebarrel("exnihilo","block","barrel_stone"),
+		crucible("exnihilo","block","crucible"),
+		dust("exnihilo","block","dust"),
+		silkleaves("exnihilo","block","infested_leaves"),
+		beetrap("exnihilo","block","bee_trap"),
+		scentedtrap("exnihilo","block","bee_trap_treated"),
+		witchwater("exnihilo","block","witchwater"),
+		ironore("exnihilo","block","iron_ore"),
+		goldore("exnihilo","block","gold_ore"),
+		copperore("exnihilo","block","copper_ore"),
+		tinore("exnihilo","block","tin_ore"),
+		silverore("exnihilo","block","silver_ore"),
+		leadore("exnihilo","block","lead_ore"),
+		nickelore("exnihilo","block","nickel_ore"),
+		platinumore("exnihilo","block","platinum_ore"),
+		osmiumore("exnihilo","block","osmium_ore"),
+		aluminumore("exnihilo","block","aluminum_ore"),
+		silkworm("exnihilo","item","silkworm"),
+		nomworm("exnihilo","item","silkworm_cooked"),
+		spores("exnihilo","item","spores"),
+		grass("exnihilo","item","seed_grass"),
+		oakseed("exnihilo","item","seed_oak"),
+		zebraseed("exnihilo","item","seed_birch"),
+		spruceseed("exnihilo","item","seed_spruce"),
+		jungleseed("exnihilo","item","seed_jungle"),
+		cactusseed("exnihilo","item","seed_cactus"),
+		caneseed("exnihilo","item","seed_sugar_cane"),
+		carrotseed("exnihilo","item","seed_carrot"),
+		taterseed("exnihilo","item","seed_potato"),
+		rubberseed("exnihilo","item","seed_rubber"),
+		witchbucket("exnihilo","item","bucket_witchwater"),
+		mesh("exnihilo","item","mesh"),
+		irongrav("exnihilo","item","iron_broken"),
+		ironsand("exnihilo","item","iron_crushed"),
+		irondust("exnihilo","item","iron_pulverized"),
+		goldgrav("exnihilo","item","gold_broken"),
+		goldsand("exnihilo","item","gold_crushed"),
+		golddust("exnihilo","item","gold_pulverized"),
+		coppergrav("exnihilo","item","copper_broken"),
+		coppersand("exnihilo","item","copper_crushed"),
+		copperdust("exnihilo","item","copper_pulverized"),
+		tingrav("exnihilo","item","tin_broken"),
+		tinsand("exnihilo","item","tin_crushed"),
+		tindust("exnihilo","item","tin_pulverized"),
+		silvergrav("exnihilo","item","silver_broken"),
+		silversand("exnihilo","item","silver_crushed"),
+		silverdust("exnihilo","item","silver_pulverized"),
+		leadgrav("exnihilo","item","lead_broken"),
+		leadsand("exnihilo","item","lead_crushed"),
+		leaddust("exnihilo","item","lead_pulverized"),
+		nickelgrav("exnihilo","item","nickel_broken"),
+		nickelsand("exnihilo","item","nickel_crushed"),
+		nickeldust("exnihilo","item","nickel_pulverized"),
+		platinumgrav("exnihilo","item","platinum_broken"),
+		platinumsand("exnihilo","item","platinum_crushed"),
+		platinumdust("exnihilo","item","platinum_pulverized"),
+		osmiumgrav("exnihilo","item","osmium_broken"),
+		osmiumsand("exnihilo","item","osmium_crushed"),
+		osmiumdust("exnihilo","item","osmium_pulverized"),
+		aluminumgrav("exnihilo","item","aluminum_broken"),
+		aluminumsand("exnihilo","item","aluminum_crushed"),
+		aluminumdust("exnihilo","item","aluminum_pulverized"),
+		stones("exnihilo","item","stone"),
+		diamondhammer("exnihilo","item","hammer_diamond"),
 		
 		oreberrybush("TConstruct","block","ore.berries.one"),
 		oreberrybush2("TConstruct","block","ore.berries.two"),
@@ -187,6 +188,22 @@ public class ModIDs
 		private String type() { return type; }
 		private String sname() {return sname; }
 	}
+	
+	public static ItemStack getItemStack(Info info)
+	{
+	    return getItemStack(info, 0);
+	}
+	
+	public static ItemStack getItemStack(Info info, int meta)
+	{
+	    if (info.type.equals("block")) {
+	        Block block = findBlock(info.mod, info.sname);
+	        return (block != null) ? new ItemStack(block, 1, meta) : new ItemStack(new ItemBlock(debugBlockInfo(info)), 1, 0);
+	    } else {
+	        Item item = findItem(info.mod, info.sname);
+            return (item != null) ? new ItemStack(item, 1, meta) : new ItemStack(debugItemInfo(info), 1, 0);
+	    }
+	}
 
     public static Block getBlock(Info info)
     {
@@ -202,13 +219,15 @@ public class ModIDs
 
     private static Block debugBlockInfo(Info info)
     {
-        exaliquo.logger.log(Level.WARNING, "The block from " + info.mod + "called as " + info.sname + " could not be found. Report this to Ex Aliquo");
+        ExAliquo.logger.warn("The block from " + info.mod + " called as " + info.sname + " could not be found. Report this to Ex Aliquo");
+        if (Blocks.cake == null) ExAliquo.logger.warn("AND ALSO COULDNT FIND CAKE!"); 
         return Blocks.cake;
     }
 
     private static Item debugItemInfo(Info info)
     {
-        exaliquo.logger.log(Level.WARNING, "The item from " + info.mod + " called as " + info.sname + " could not be found. Report this to Ex Aliquo");
+        ExAliquo.logger.warn("The item from " + info.mod + " called as " + info.sname + " could not be found. Report this to Ex Aliquo");
+        if (Items.cake == null) ExAliquo.logger.warn("AND ALSO COULDNT FIND CAKE!");
         return Items.cake;
     }
 }
