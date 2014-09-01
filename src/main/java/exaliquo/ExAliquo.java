@@ -10,6 +10,7 @@ import static exaliquo.data.ModsLoaded.isMetallurgyLoaded;
 import static exaliquo.data.ModsLoaded.isTConLoaded;
 import static exaliquo.data.ModsLoaded.isThaumcraftLoaded;
 import static exaliquo.data.ModsLoaded.isThermalExpansionLoaded;
+import io.drakon.pulsar.control.PulseManager;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -53,6 +54,8 @@ public class ExAliquo {
 	
 	public static final Logger logger = LogManager.getLogger(ExAliquo.modID);
 	
+	public static final PulseManager pulsar = new PulseManager(ExAliquo.modID, "ExAliquo-Modules");
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -67,12 +70,17 @@ public class ExAliquo {
 		
 		MinecraftForge.EVENT_BUS.register(new AliquoEvents());
 		FMLCommonHandler.instance().bus().register(new AliquoTickHandler());
+		
+		pulsar.registerPulse(new Natura());
+		
+		pulsar.preInit(event);
 	}
 	
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
 		
+	    pulsar.init(event);
 	}
 	
 	@EventHandler
@@ -91,11 +99,6 @@ public class ExAliquo {
 		{
 		    ExAliquo.logger.info("Loading Tinker's Construct Compat");
 			TConstruct.initTConstruct();
-		}
-		if (isNaturaLoaded)
-		{
-		    ExAliquo.logger.info("Loading Natura Compat");
-			Natura.initNatura();
 		}
 		if (isArsMagicaLoaded)
 		{
@@ -141,5 +144,7 @@ public class ExAliquo {
 		    ExAliquo.logger.info("Loading Thermal Expansion Compat");
 			ThermalExpansion.initThermalExpansion();
 		}
+		
+		pulsar.postInit(event);
 	}
 }

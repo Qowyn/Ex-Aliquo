@@ -129,6 +129,12 @@ processResources
                 // replace version and MCVersion
         expand 'version':artifact_version,'MCversion':config.minecraft_version
     }
+    
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)){
+            exclude 'META-INF', 'META-INF/**'
+        }
+    }
         
         // copy everything else, thats not text
     from(sourceSets.main.resources.srcDirs) {
