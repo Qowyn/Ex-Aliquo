@@ -24,6 +24,7 @@ import exaliquo.items.GoldCrook;
 import exaliquo.items.HayCrook;
 import exaliquo.items.ReedCrook;
 import exaliquo.items.blocks.ItemBlockOre;
+import exnihilo.registries.OreRegistry;
 
 public class Registries
 {
@@ -322,21 +323,25 @@ public class Registries
 			hammer.setToolMaterial(toolEnum);
 		}
 	}
+	
+	public static void registerSingleNihiloOre(String oreName, String ore)
+	{
+	    OreDictionary.registerOre(oreName, new ItemStack(OreRegistry.getGravel(ore)));
+	    OreDictionary.registerOre(oreName, new ItemStack(OreRegistry.getSand(ore)));
+	    OreDictionary.registerOre(oreName, new ItemStack(OreRegistry.getDust(ore)));
+	}
 
 	public static void registerNihiloOreDict()
 	{
-		for (int i = 0; i < 3; i++)
-		{
-			OreDictionary.registerOre("oreIron", getItemStack(Info.ironore, i));
-			OreDictionary.registerOre("oreGold", getItemStack(Info.goldore, i));
-			OreDictionary.registerOre("oreCopper", getItemStack(Info.copperore, i));
-			OreDictionary.registerOre("oreTin", getItemStack(Info.tinore, i));
-			OreDictionary.registerOre("oreSilver", getItemStack(Info.silverore, i));
-			OreDictionary.registerOre("oreLead", getItemStack(Info.leadore, i));
-			OreDictionary.registerOre("oreNickel", getItemStack(Info.nickelore, i));
-			OreDictionary.registerOre("orePlatinum", getItemStack(Info.platinumore, i));
-			OreDictionary.registerOre("oreAluminum", getItemStack(Info.aluminumore, i));
-			OreDictionary.registerOre("oreAluminium", getItemStack(Info.aluminumore, i));
-		}
+	    registerSingleNihiloOre("oreIron", "iron");
+	    registerSingleNihiloOre("oreGold", "gold");
+	    registerSingleNihiloOre("oreCopper", "copper");
+	    registerSingleNihiloOre("oreTin", "tin");
+	    registerSingleNihiloOre("oreSilver", "silver");
+	    registerSingleNihiloOre("oreLead", "lead");
+	    registerSingleNihiloOre("oreNickel", "nickel");
+	    registerSingleNihiloOre("orePlatinum", "platinum");
+	    registerSingleNihiloOre("oreAluminum", "aluminum");
+	    registerSingleNihiloOre("oreAluminium", "aluminum");
 	}
 }
