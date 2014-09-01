@@ -11,11 +11,11 @@ public class Sieving
 
 	protected static void SieveGrowth()
 	{
-		if (Growthcraft.isGCBamboo)
+		if (GrowthcraftBridge.isGCBamboo)
 		{
 			register(Blocks.leaves, 3, getItem(Info.gcbamboo), 0, 64);
 		}
-		if (Growthcraft.isGCBees)
+		if (GrowthcraftBridge.isGCBees)
 		{
 			register(getBlock(Info.silkleaves), 0, getItem(Info.gcbee), 0, 16);
 			register(getBlock(Info.silkleaves), 1, getItem(Info.gcbee), 0, 16);

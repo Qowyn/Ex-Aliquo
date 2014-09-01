@@ -11,28 +11,28 @@ public class Composting
 
 	protected static void CompostGrowth()
 	{
-		if (Growthcraft.isGCApples)
+		if (GrowthcraftBridge.isGCApples)
 		{
 			register(getItem(Info.gcapple), 0, 0.03125F, color("apple"));
 			register(Items.apple, 0, 0.03125F, color("apple"));
 			register(getItem(Info.gcsappling), 0, 0.03125F, color("oak"));
 		}
-		if (Growthcraft.isGCBamboo)
+		if (GrowthcraftBridge.isGCBamboo)
 		{
 			register(getItem(Info.gcbamboo), 0, 0.125F, color("bamboo"));
 			register(getItem(Info.gcleaves), 0, 0.125F, color("bamboo"));
 		}
-		if (Growthcraft.isGCGrapes)
+		if (GrowthcraftBridge.isGCGrapes)
 		{
 			register(getItem(Info.gcgrape), 0, 0.125F, color("grape"));
 			register(getItem(Info.gcgrapeseed), 0, 0.125F, color("grape"));
 		}
-		if (Growthcraft.isGCHops)
+		if (GrowthcraftBridge.isGCHops)
 		{
 			register(getItem(Info.gchops), 0, 0.125F, color("hops"));
 			register(getItem(Info.gchopseed), 0, 0.125F, color("hops"));
 		}
-		if (Growthcraft.isGCRice)
+		if (GrowthcraftBridge.isGCRice)
 		{
 			register(getItem(Info.gcrice), 0, 0.125F, color("white"));
 			register(getItem(Info.gcriceball), 0, 0.125F, color("white"));

@@ -4,6 +4,9 @@ import static exaliquo.data.ModIDs.getBlock;
 import static exaliquo.data.ModIDs.getItem;
 import static exaliquo.data.MoltenMetals.*;
 import static net.minecraftforge.fluids.FluidRegistry.getFluid;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import io.drakon.pulsar.pulse.Handler;
+import io.drakon.pulsar.pulse.Pulse;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import tconstruct.library.crafting.Smeltery;
@@ -11,10 +14,15 @@ import exaliquo.data.Configurations;
 import exaliquo.data.ModIDs.Info;
 import exnihilo.registries.CrucibleRegistry;
 
+@Pulse(id = ExtraTic_Mekanism.PULSE_ID, modsRequired = ExtraTic_Mekanism.REQUIRED_MODS)
 public class ExtraTic_Mekanism
 {
+    public static final String PULSE_ID = "ExAliquo ExtraTic Mekanism Module";
+    
+    public static final String REQUIRED_MODS = "ExtraTic;Mekanism";
 
-	protected static void SmeltMekanism()
+    @Handler
+	public void smeltMekanism(FMLPostInitializationEvent event)
 	{
 		for (int i = 0; i < 3; i++)
 		{

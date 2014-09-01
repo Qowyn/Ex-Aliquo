@@ -1,19 +1,29 @@
 package exaliquo.proxy;
 
+import io.drakon.pulsar.pulse.Handler;
+import io.drakon.pulsar.pulse.Pulse;
+
 import java.lang.reflect.Method;
 
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
+@Pulse(id = ForestryReflection.PULSE_ID, modsRequired = ForestryReflection.MOD_ID)
 public class ForestryReflection
 {
+    public static final String PULSE_ID = "ExAliquo Forestry Module";
+    
+    public static final String MOD_ID = "Forestry";
+    
 	public static boolean extras = false;
 	public static boolean forestryrefcheck = true;
 	private static Class forestryLeafBlock = null;
 	private static Method drops = null;
 	private static final Class[] spawnLeafParams = { World.class, int.class, int.class, int.class, int.class, float.class, boolean.class };
 
-	public static void initProxy()
+	@Handler
+	public void postInit(FMLPostInitializationEvent event)
 	{
 		try
 		{

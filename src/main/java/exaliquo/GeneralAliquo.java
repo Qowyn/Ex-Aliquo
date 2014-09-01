@@ -7,9 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import exaliquo.bridges.crossmod.Whenk;
 import exaliquo.data.Configurations;
-import exaliquo.data.ModsLoaded;
 import exnihilo.registries.ColorRegistry;
 import exnihilo.registries.CompostRegistry;
 import exnihilo.registries.HammerRegistry;
@@ -61,10 +59,6 @@ public class GeneralAliquo
 			HammerRegistry.register(Blocks.monster_egg, 0, null, 0, 0.0F, 0.0F);
 			HammerRegistry.register(Blocks.monster_egg, 1, null, 0, 0.0F, 0.0F);
 			HammerRegistry.register(Blocks.monster_egg, 2, null, 0, 0.0F, 0.0F);
-			if (ModsLoaded.isNetherOresLoaded)
-			{
-				Whenk.NinjaFeesh();
-			}
 		}
 	}	
 }

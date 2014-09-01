@@ -4,17 +4,26 @@ import static exaliquo.data.MoltenMetals.dustCostSmeltery;
 import static exaliquo.data.MoltenMetals.ingotCost;
 import static exaliquo.data.MoltenMetals.ingotCostSmeltery;
 import static net.minecraftforge.fluids.FluidRegistry.getFluid;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import io.drakon.pulsar.pulse.Handler;
+import io.drakon.pulsar.pulse.Pulse;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import tconstruct.library.crafting.Smeltery;
 import exaliquo.Registries;
+import exaliquo.bridges.Metallurgy.MetallurgyBridge;
 import exaliquo.data.Configurations;
 import exnihilo.registries.CrucibleRegistry;
 
+@Pulse(id = ExtraTic_Metallurgy.PULSE_ID, modsRequired = ExtraTic_Metallurgy.REQUIRED_MODS)
 public class ExtraTic_Metallurgy
 {
+    public static final String PULSE_ID = "ExAliquo ExtraTic Metallurgy Module";
+    
+    public static final String REQUIRED_MODS = "ExtraTiC;" + MetallurgyBridge.MOD_ID;
 
-	protected static void SmeltMetallurgy()
+    @Handler
+	public void postInit(FMLPostInitializationEvent event)
 	{
 		for (int i = 0; i < 3; i++)
 		{

@@ -1,20 +1,31 @@
 package exaliquo.bridges.TConstruct;
 
 import static exaliquo.data.ModIDs.getItem;
+import io.drakon.pulsar.pulse.Handler;
+import io.drakon.pulsar.pulse.Pulse;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import net.minecraft.item.ItemStack;
 import tconstruct.library.TConstructRegistry;
 import tconstruct.library.client.TConstructClientRegistry;
 import tconstruct.library.crafting.ModifyBuilder;
+import exaliquo.ExAliquo;
 import exaliquo.Registries;
 import exaliquo.bridges.TConstruct.Modifiers.ModCrooked;
 import exaliquo.bridges.TConstruct.Modifiers.ModHammered;
 import exaliquo.data.ModIDs.Info;
 
-public class TConstruct
+@Pulse(id = TConstructBridge.PULSE_ID, modsRequired = TConstructBridge.MOD_ID)
+public class TConstructBridge
 {
+    public static final String PULSE_ID = "ExAliquo TConstruct Module";
+    
+    public static final String MOD_ID = "TConstruct";
 
-	public static void initTConstruct()
+    @Handler
+	public void postInit(FMLPostInitializationEvent event)
 	{
+        ExAliquo.logger.info("Loading Tinker's Construct Compat");
+        
 		Colors.ColorTConstruct();
 		Composting.CompostTConstruct();
 		Smelting.SmeltTConstruct();
@@ -25,7 +36,7 @@ public class TConstruct
 		addModifiers();
 	}
 	
-	static void addModifiers()
+	public void addModifiers()
 	{
 	    ModifyBuilder.registerModifier(new ModCrooked(new ItemStack[] { new ItemStack(Registries.crookGold, 1, 0) }, 60));
 		TConstructClientRegistry.addEffectRenderMapping(60, "exaliquo", "crook", true);

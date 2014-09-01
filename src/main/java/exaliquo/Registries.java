@@ -17,14 +17,12 @@ import exaliquo.data.AliquoMaterial;
 import exaliquo.data.ExAOreTab;
 import exaliquo.data.ExATab;
 import exaliquo.data.ModIDs.Info;
-import exaliquo.data.ModsLoaded;
 import exaliquo.items.AliquoHammer;
 import exaliquo.items.AliquoItemOre;
 import exaliquo.items.DragonEgg;
 import exaliquo.items.GoldCrook;
 import exaliquo.items.HayCrook;
 import exaliquo.items.ReedCrook;
-import exaliquo.items.ThaumiumHammer;
 import exaliquo.items.blocks.ItemBlockOre;
 
 public class Registries
@@ -111,10 +109,6 @@ public class Registries
 	
 	public static void registerItems()
 	{
-		if (ModsLoaded.isThaumcraftLoaded)
-		{
-			hammerThaum = new ThaumiumHammer().setUnlocalizedName("ExAliquo.ThaumHammer").registerItem().setCreativeTab(exatab);
-		}
 		hammerInvar = new AliquoHammer("invar").registerItem();
 		hammerCopper = new AliquoHammer("copper").registerItem();
 		hammerTin = new AliquoHammer("tin").registerItem();

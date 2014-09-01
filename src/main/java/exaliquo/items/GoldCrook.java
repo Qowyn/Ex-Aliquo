@@ -16,7 +16,6 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import exaliquo.data.ModIDs.Info;
-import exaliquo.data.ModsLoaded;
 import exnihilo.data.ModData;
 import exnihilo.items.ItemCrook;
 
@@ -58,12 +57,12 @@ public class GoldCrook extends ItemCrook
 		{
 			if (!world.isRemote)
 			{
-				if (forestryrefcheck && ModsLoaded.isForestryLoaded)
+				/*if (forestryrefcheck && ModsLoaded.isForestryLoaded)
 				{
 					ForestryLeaves(world, block, meta, X, Y, Z);
 					ForestryLeaves(world, block, meta, X, Y, Z);
 					ForestryLeaves(world, block, meta, X, Y, Z);
-				}
+				}*/
 
 				if (!extras)
 				{

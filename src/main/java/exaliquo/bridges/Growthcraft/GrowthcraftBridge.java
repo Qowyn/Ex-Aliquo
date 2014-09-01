@@ -1,9 +1,17 @@
 package exaliquo.bridges.Growthcraft;
 
+import io.drakon.pulsar.pulse.Handler;
+import io.drakon.pulsar.pulse.Pulse;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import exaliquo.ExAliquo;
 
-public class Growthcraft
+@Pulse(id = GrowthcraftBridge.PULSE_ID, modsRequired = GrowthcraftBridge.MOD_ID)
+public class GrowthcraftBridge
 {
+    public static final String PULSE_ID = "ExAliquo Growthcraft Module";
+    
+    public static final String MOD_ID = "Growthcraft";
 
 	protected static boolean isGCApples = Loader.isModLoaded("Growthcraft|Apples");
 	protected static boolean isGCBamboo = Loader.isModLoaded("Growthcraft|Bamboo");
@@ -12,8 +20,11 @@ public class Growthcraft
 	protected static boolean isGCHops = Loader.isModLoaded("Growthcraft|Hops");
 	protected static boolean isGCRice = Loader.isModLoaded("Growthcraft|Rice");
 	
-	public static void initGrowthcraft()
+	@Handler
+	public void postInit(FMLPostInitializationEvent event)
 	{
+	    ExAliquo.logger.info("Loading Growthcraft Compat");
+
 		Colors.ColorGrowth();
 		Composting.CompostGrowth();
 		Sieving.SieveGrowth();

@@ -1,15 +1,5 @@
 package exaliquo;
 
-import static exaliquo.data.ModsLoaded.isArsMagicaLoaded;
-import static exaliquo.data.ModsLoaded.isDartcraftLoaded;
-import static exaliquo.data.ModsLoaded.isForestryLoaded;
-import static exaliquo.data.ModsLoaded.isGrowthcraftLoaded;
-import static exaliquo.data.ModsLoaded.isMFRLoaded;
-import static exaliquo.data.ModsLoaded.isMaricultureLoaded;
-import static exaliquo.data.ModsLoaded.isMetallurgyLoaded;
-import static exaliquo.data.ModsLoaded.isTConLoaded;
-import static exaliquo.data.ModsLoaded.isThaumcraftLoaded;
-import static exaliquo.data.ModsLoaded.isThermalExpansionLoaded;
 import io.drakon.pulsar.control.PulseManager;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -24,17 +14,19 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import exaliquo.bridges.ArsMagica.ArsMagica;
-import exaliquo.bridges.Dart.Dartcraft;
-import exaliquo.bridges.Growthcraft.Growthcraft;
-import exaliquo.bridges.Mariculture.Mariculture;
-import exaliquo.bridges.Metallurgy.Metallurgy;
-import exaliquo.bridges.MineFactoryReloaded.MineFactoryReloaded;
-import exaliquo.bridges.Natura.Natura;
-import exaliquo.bridges.TConstruct.TConstruct;
-import exaliquo.bridges.Thaumcraft.Thaumcraft;
-import exaliquo.bridges.ThermalExpansion.ThermalExpansion;
-import exaliquo.bridges.crossmod.Crossmod;
+import exaliquo.bridges.ArsMagica.ArsMagicaBridge;
+import exaliquo.bridges.Dart.DartcraftBridge;
+import exaliquo.bridges.Growthcraft.GrowthcraftBridge;
+import exaliquo.bridges.Mariculture.MaricultureBridge;
+import exaliquo.bridges.Metallurgy.MetallurgyBridge;
+import exaliquo.bridges.MineFactoryReloaded.MineFactoryReloadedBridge;
+import exaliquo.bridges.Natura.NaturaBridge;
+import exaliquo.bridges.TConstruct.TConstructBridge;
+import exaliquo.bridges.Thaumcraft.ThaumcraftBridge;
+import exaliquo.bridges.ThermalExpansion.ThermalExpansionBridge;
+import exaliquo.bridges.crossmod.ArsMagica_Tinker;
+import exaliquo.bridges.crossmod.CropXYZ;
+import exaliquo.bridges.crossmod.NetherOres_Thaumcraft;
 import exaliquo.data.AliquoEvents;
 import exaliquo.data.AliquoTickHandler;
 import exaliquo.data.Configurations;
@@ -71,7 +63,22 @@ public class ExAliquo {
 		MinecraftForge.EVENT_BUS.register(new AliquoEvents());
 		FMLCommonHandler.instance().bus().register(new AliquoTickHandler());
 		
-		pulsar.registerPulse(new Natura());
+		// Mod Bridges
+		pulsar.registerPulse(new ArsMagicaBridge());
+		pulsar.registerPulse(new DartcraftBridge());
+		pulsar.registerPulse(new ForestryReflection());
+		pulsar.registerPulse(new GrowthcraftBridge());
+		pulsar.registerPulse(new MaricultureBridge());
+		pulsar.registerPulse(new MetallurgyBridge());
+		pulsar.registerPulse(new MineFactoryReloadedBridge());
+		pulsar.registerPulse(new NaturaBridge());
+		pulsar.registerPulse(new TConstructBridge());
+		pulsar.registerPulse(new ThaumcraftBridge());
+		pulsar.registerPulse(new ThermalExpansionBridge());
+		
+		// Cross-Mod Bridges
+		pulsar.registerPulse(new ArsMagica_Tinker());
+		pulsar.registerPulse(new NetherOres_Thaumcraft());
 		
 		pulsar.preInit(event);
 	}
@@ -79,7 +86,6 @@ public class ExAliquo {
 	@EventHandler
 	public void Init(FMLInitializationEvent event)
 	{
-		
 	    pulsar.init(event);
 	}
 	
@@ -93,57 +99,8 @@ public class ExAliquo {
 			Registries.registerNihiloOreDict();
 		}
 		GeneralAliquo.initGeneralStuff();
-		Crossmod.initCross();
+		CropXYZ.Shoukan();
 		OreDictDrops.CheckMetals();
-		if (isTConLoaded)
-		{
-		    ExAliquo.logger.info("Loading Tinker's Construct Compat");
-			TConstruct.initTConstruct();
-		}
-		if (isArsMagicaLoaded)
-		{
-		    ExAliquo.logger.info("Loading Ars Magica 2 Compat");
-			ArsMagica.initArsMagica();
-		}
-		if (isThaumcraftLoaded)
-		{
-		    ExAliquo.logger.info("Loading Thaumcraft 4 Compat");
-			Thaumcraft.initThaumcraft();
-		}
-		if(isGrowthcraftLoaded)
-		{
-		    ExAliquo.logger.info("Loading Growthcraft Compat");
-			Growthcraft.initGrowthcraft();
-		}
-		if (isMaricultureLoaded)
-		{
-		    ExAliquo.logger.info("Loading Mariculture Compat");
-			Mariculture.initMariculture();
-		}
-		if (isMFRLoaded)
-		{
-		    ExAliquo.logger.info("Loading MFR Compat");
-			MineFactoryReloaded.initMFR();
-		}
-		if (isMetallurgyLoaded)
-		{
-		    ExAliquo.logger.info("Loading Metallurgy Compat");
-			Metallurgy.initMetallurgy();
-		}
-		if (isDartcraftLoaded)
-		{
-		    ExAliquo.logger.info("Loading Dartcraft Compat");
-			Dartcraft.initDartcraft();
-		}
-		if (isForestryLoaded)
-		{
-			ForestryReflection.initProxy();
-		}
-		if (isThermalExpansionLoaded)
-		{
-		    ExAliquo.logger.info("Loading Thermal Expansion Compat");
-			ThermalExpansion.initThermalExpansion();
-		}
 		
 		pulsar.postInit(event);
 	}

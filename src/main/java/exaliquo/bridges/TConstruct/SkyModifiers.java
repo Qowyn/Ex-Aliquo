@@ -21,7 +21,6 @@ import tconstruct.library.ActiveToolMod;
 import tconstruct.library.tools.AbilityHelper;
 import tconstruct.library.tools.ToolCore;
 import exaliquo.data.ModIDs.Info;
-import exaliquo.data.ModsLoaded;
 import exnihilo.data.ModData;
 import exnihilo.registries.HammerRegistry;
 import exnihilo.registries.helpers.Smashable;
@@ -43,10 +42,10 @@ public class SkyModifiers extends ActiveToolMod
 	
 			if (!world.isRemote && block != null && block.isLeaves(world, X, Y, Z))
 			{
-				if (forestryrefcheck && ModsLoaded.isForestryLoaded)
+				/*if (forestryrefcheck && ModsLoaded.isForestryLoaded)
 				{
 					ForestryLeaves(world, block, meta, X, Y, Z);
-				}
+				}*/
 				
 				if (!extras)
 				{
