@@ -1,5 +1,7 @@
 package exaliquo.bridges.ThermalExpansion;
 
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import io.drakon.pulsar.pulse.Handler;
 import io.drakon.pulsar.pulse.Pulse;
 import exaliquo.ExAliquo;
 
@@ -10,7 +12,8 @@ public class ThermalExpansionBridge
     
     public static final String MOD_ID = "ThermalExpansion";
 
-	public static void initThermalExpansion()
+    @Handler
+	public static void postInit(FMLPostInitializationEvent event)
 	{
 	    ExAliquo.logger.info("Loading Thermal Expansion Compat");
 	    

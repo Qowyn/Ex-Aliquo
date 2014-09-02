@@ -1,6 +1,5 @@
 package exaliquo.bridges.Metallurgy;
 
-import exaliquo.Registries;
 import static exnihilo.registries.HammerRegistry.registerOre;
 
 public class Hammering
@@ -10,31 +9,31 @@ public class Hammering
 	{
 		for (int i = 0; i < 2; i++)
 		{
-			registerOre(Registries.adamantineOreBlock, i, Registries.adamantineOreItem, i+1);
-			registerOre(Registries.alduoriteOreBlock, i, Registries.alduoriteOreItem, i+1);
-			registerOre(Registries.astralsilverOreBlock, i, Registries.astralsilverOreItem, i+1);
-			registerOre(Registries.atlarusOreBlock, i, Registries.atlarusOreItem, i+1);
-			registerOre(Registries.carmotOreBlock, i, Registries.carmotOreItem, i+1);
-			registerOre(Registries.ceruclaseOreBlock, i, Registries.ceruclaseOreItem, i+1);
-			registerOre(Registries.deepironOreBlock, i, Registries.deepironOreItem, i+1);
-			registerOre(Registries.eximiteOreBlock, i, Registries.eximiteOreItem, i+1);
-			registerOre(Registries.ignatiusOreBlock, i, Registries.ignatiusOreItem, i+1);
-			registerOre(Registries.infuscoliumOreBlock, i, Registries.infuscoliumOreItem, i+1);
-			registerOre(Registries.kalendriteOreBlock, i, Registries.kalendriteOreItem, i+1);
-			registerOre(Registries.lemuriteOreBlock, i, Registries.lemuriteOreItem, i+1);
-			registerOre(Registries.manganeseOreBlock, i, Registries.manganeseOreItem, i+1);
-			registerOre(Registries.meutoiteOreBlock, i, Registries.meutoiteOreItem, i+1);
-			registerOre(Registries.midasiumOreBlock, i, Registries.midasiumOreItem, i+1);
-			registerOre(Registries.mithrilOreBlock, i, Registries.mithrilOreItem, i+1);
-			registerOre(Registries.orichalcumOreBlock, i, Registries.orichalcumOreItem, i+1);
-			registerOre(Registries.oureclaseOreBlock, i, Registries.oureclaseOreItem, i+1);
-			registerOre(Registries.prometheumOreBlock, i, Registries.prometheumOreItem, i+1);
-			registerOre(Registries.rubraciumOreBlock, i, Registries.rubraciumOreItem, i+1);
-			registerOre(Registries.sanguiniteOreBlock, i, Registries.sanguiniteOreItem, i+1);
-			registerOre(Registries.shadowironOreBlock, i, Registries.shadowironOreItem, i+1);
-			registerOre(Registries.vulcaniteOreBlock, i, Registries.vulcaniteOreItem, i+1);
-			registerOre(Registries.vyroxeresOreBlock, i, Registries.vyroxeresOreItem, i+1);
-			registerOre(Registries.zincOreBlock, i, Registries.zincOreItem, i+1);
+			registerOre(MBlockRegistry.adamantineOreBlock, i, MItemRegistry.adamantineOreItem, i+1);
+			registerOre(MBlockRegistry.alduoriteOreBlock, i, MItemRegistry.alduoriteOreItem, i+1);
+			registerOre(MBlockRegistry.astralsilverOreBlock, i, MItemRegistry.astralsilverOreItem, i+1);
+			registerOre(MBlockRegistry.atlarusOreBlock, i, MItemRegistry.atlarusOreItem, i+1);
+			registerOre(MBlockRegistry.carmotOreBlock, i, MItemRegistry.carmotOreItem, i+1);
+			registerOre(MBlockRegistry.ceruclaseOreBlock, i, MItemRegistry.ceruclaseOreItem, i+1);
+			registerOre(MBlockRegistry.deepironOreBlock, i, MItemRegistry.deepironOreItem, i+1);
+			registerOre(MBlockRegistry.eximiteOreBlock, i, MItemRegistry.eximiteOreItem, i+1);
+			registerOre(MBlockRegistry.ignatiusOreBlock, i, MItemRegistry.ignatiusOreItem, i+1);
+			registerOre(MBlockRegistry.infuscoliumOreBlock, i, MItemRegistry.infuscoliumOreItem, i+1);
+			registerOre(MBlockRegistry.kalendriteOreBlock, i, MItemRegistry.kalendriteOreItem, i+1);
+			registerOre(MBlockRegistry.lemuriteOreBlock, i, MItemRegistry.lemuriteOreItem, i+1);
+			registerOre(MBlockRegistry.manganeseOreBlock, i, MItemRegistry.manganeseOreItem, i+1);
+			registerOre(MBlockRegistry.meutoiteOreBlock, i, MItemRegistry.meutoiteOreItem, i+1);
+			registerOre(MBlockRegistry.midasiumOreBlock, i, MItemRegistry.midasiumOreItem, i+1);
+			registerOre(MBlockRegistry.mithrilOreBlock, i, MItemRegistry.mithrilOreItem, i+1);
+			registerOre(MBlockRegistry.orichalcumOreBlock, i, MItemRegistry.orichalcumOreItem, i+1);
+			registerOre(MBlockRegistry.oureclaseOreBlock, i, MItemRegistry.oureclaseOreItem, i+1);
+			registerOre(MBlockRegistry.prometheumOreBlock, i, MItemRegistry.prometheumOreItem, i+1);
+			registerOre(MBlockRegistry.rubraciumOreBlock, i, MItemRegistry.rubraciumOreItem, i+1);
+			registerOre(MBlockRegistry.sanguiniteOreBlock, i, MItemRegistry.sanguiniteOreItem, i+1);
+			registerOre(MBlockRegistry.shadowironOreBlock, i, MItemRegistry.shadowironOreItem, i+1);
+			registerOre(MBlockRegistry.vulcaniteOreBlock, i, MItemRegistry.vulcaniteOreItem, i+1);
+			registerOre(MBlockRegistry.vyroxeresOreBlock, i, MItemRegistry.vyroxeresOreItem, i+1);
+			registerOre(MBlockRegistry.zincOreBlock, i, MItemRegistry.zincOreItem, i+1);
 		}
 	}
 }

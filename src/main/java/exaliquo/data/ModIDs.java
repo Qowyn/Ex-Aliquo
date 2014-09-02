@@ -126,7 +126,6 @@ public class ModIDs
 		dartsapling("DartCraft","block","forceSapling"),
 		dartleaves("DartCraft","block","forceLeaves"),
 		
-		liquidpyro("ThermalExpansion","block","FluidPyrotheum"),
 		liquidcold("ThermalExpansion","block","FluidCryotheum");
 		
 		private final String mod;

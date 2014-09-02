@@ -1,6 +1,5 @@
 package exaliquo.bridges.TConstruct;
 
-import exaliquo.Registries;
 import static exnihilo.registries.HammerRegistry.registerOre;
 
 public class Hammering
@@ -10,8 +9,8 @@ public class Hammering
 	{
 		for (int i = 0; i < 2; i++)
 		{
-			registerOre(Registries.cobaltOreBlock, i, Registries.cobaltOreItem, i+1);
-			registerOre(Registries.arditeOreBlock, i, Registries.arditeOreItem, i+1);
+			registerOre(TCBlockRegistry.cobaltOreBlock, i, TCItemRegistry.cobaltOreItem, i+1);
+			registerOre(TCBlockRegistry.arditeOreBlock, i, TCItemRegistry.arditeOreItem, i+1);
 		}
 	}
 }
