@@ -1,5 +1,8 @@
 package exaliquo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,7 +15,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import exaliquo.blocks.AliquoOre;
 import exaliquo.blocks.BlockEndCake;
 import exaliquo.blocks.BlockEndEye;
+import exaliquo.bridges.TConstruct.TConstructBridge;
 import exaliquo.data.AliquoMaterial;
+import exaliquo.data.Configurations;
+import exaliquo.data.CrucibleUtil;
 import exaliquo.data.ExAOreTab;
 import exaliquo.data.ExATab;
 import exaliquo.items.AliquoHammer;
@@ -22,6 +28,7 @@ import exaliquo.items.GoldCrook;
 import exaliquo.items.HayCrook;
 import exaliquo.items.ReedCrook;
 import exaliquo.items.blocks.ItemBlockOre;
+import exnihilo.registries.HammerRegistry;
 import exnihilo.registries.OreRegistry;
 
 public class Registries
@@ -49,6 +56,9 @@ public class Registries
 	
 	public static Block blockEndEye;
 	public static Block blockEndCake;
+	
+	private static Map<String, Block> oreBlocks = new HashMap<String, Block>();
+	private static Map<String, Item> oreItems = new HashMap<String, Item>();
 	
 	public static void registerItems()
 	{
@@ -135,5 +145,59 @@ public class Registries
 	    registerSingleNihiloOre("orePlatinum", "platinum");
 	    registerSingleNihiloOre("oreAluminum", "aluminum");
 	    registerSingleNihiloOre("oreAluminium", "aluminum");
+	}
+	
+	public static void registerModMetal(String oreName, String oreToGenerate, String fluidName, int temperature)
+	{
+	    Block oreBlock = new AliquoOre().setBlockName(oreToGenerate);
+	    GameRegistry.registerBlock(oreBlock, ItemBlockOre.class, "ExAliquo." + oreToGenerate + "OreBlock");
+	    
+	    Item oreItem = new AliquoItemOre().setUnlocalizedName(oreToGenerate);
+        GameRegistry.registerItem(oreItem, "ExAliquo." + oreToGenerate + "OreItem");
+        
+        oreBlocks.put(oreName, oreBlock);
+        oreItems.put(oreName, oreItem);
+        
+        for (int i = 0; i < 3; i++)
+        {
+            GameRegistry.addShapedRecipe(new ItemStack(oreBlock, 1, i), new Object[] { oreshape, 'i', new ItemStack(oreItem, 1, i)});
+        }
+        
+        for (int i = 0; i < 2; i++)
+        {
+            HammerRegistry.registerOre(oreBlock, i, oreItem, i+1);
+        }
+        
+        if (Configurations.miniSmelting)
+        {
+            CrucibleUtil.addCrucibleDust(oreItem, fluidName);
+            CrucibleUtil.addCrucibleOre(oreBlock, fluidName);
+        }
+        
+        if (temperature > 0 && ExAliquo.pulsar.isPulseLoaded(TConstructBridge.PULSE_ID))
+        {
+            TConstructBridge.addSmelteryDust(oreItem, fluidName, temperature, oreBlock);
+            TConstructBridge.addSmelteryOre(oreBlock, fluidName, temperature);
+        }
+	}
+	
+	public static Block getOreBlockForOre(String oreName)
+	{
+	    return oreBlocks.get(oreName);
+	}
+	
+	public static Item getOreItemForOre(String oreName)
+    {
+        return oreItems.get(oreName);
+    }
+	
+	public static boolean hasOreItems()
+	{
+	    return oreItems.size() > 0;
+	}
+	
+	public static Item getFirstOreItem()
+	{
+	    return oreItems.size() > 0 ? oreItems.values().iterator().next() : null;
 	}
 }

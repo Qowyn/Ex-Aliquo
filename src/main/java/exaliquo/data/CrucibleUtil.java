@@ -17,6 +17,10 @@ public class CrucibleUtil
     {
         addCrucibleDust(ore, ore + ".molten");
     }
+    
+    public static void addCrucibleDust(Item item, String fluidName)
+    {
+    }
 
     public static void addCrucibleDust(String ore, String fluidName)
     {
@@ -86,6 +90,28 @@ public class CrucibleUtil
     public static void addCrucibleOre(String ore)
     {
         addCrucibleOre(ore, ore + ".molten");
+    }
+    
+    public static void addCrucibleOre(Block block, String fluidName)
+    {
+        Fluid fluid = FluidRegistry.getFluid(fluidName);
+        
+        if (fluid == null)
+        {
+            return;
+        }
+        
+        try
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                CrucibleRegistry.register(block, i, ingotCost * 2, fluid, ingotCost, block);
+            }
+        } 
+        catch (Exception e)
+        {
+            ExAliquo.logger.catching(e);
+        }
     }
 
     public static void addCrucibleOre(String ore, String fluidName)

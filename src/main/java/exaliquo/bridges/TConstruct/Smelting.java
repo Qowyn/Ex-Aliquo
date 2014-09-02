@@ -11,7 +11,7 @@ import exnihilo.registries.CrucibleRegistry;
 public class Smelting
 {   
 	protected static void SmeltTConstruct()
-	{		
+	{
 		if (Configurations.allowDustSmelting)
 		{
 		    TCUtil.addSmelteryDust("iron", 600);
@@ -23,8 +23,6 @@ public class Smelting
 		    TCUtil.addSmelteryDust("nickel", 400);
 		    TCUtil.addSmelteryDust("platinum", 400);
 		    TCUtil.addSmelteryDust("aluminum", 400);
-		    TCUtil.addSmelteryDust("cobalt", 650);
-		    TCUtil.addSmelteryDust("ardite", 650);
 
 			if (Configurations.miniSmelting)
 			{
@@ -37,8 +35,6 @@ public class Smelting
 			    CrucibleUtil.addCrucibleDust("nickel");
 			    CrucibleUtil.addCrucibleDust("platinum");
 			    CrucibleUtil.addCrucibleDust("aluminum");
-			    CrucibleUtil.addCrucibleDust("cobalt");
-			    CrucibleUtil.addCrucibleDust("ardite");
 			}
 		}
 		
