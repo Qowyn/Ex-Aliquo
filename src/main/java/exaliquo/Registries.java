@@ -15,7 +15,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import exaliquo.blocks.AliquoOre;
 import exaliquo.blocks.BlockEndCake;
 import exaliquo.blocks.BlockEndEye;
-import exaliquo.bridges.TConstruct.TConstructBridge;
+import exaliquo.bridges.tconstruct.TConstructBridge;
 import exaliquo.data.AliquoMaterial;
 import exaliquo.data.Configurations;
 import exaliquo.data.CrucibleUtil;

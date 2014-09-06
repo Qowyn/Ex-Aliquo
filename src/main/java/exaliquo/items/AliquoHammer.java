@@ -23,8 +23,6 @@ public class AliquoHammer extends ItemHammerBase
 	private static final List<AliquoHammer> registeredHammers = Lists.newArrayList();
 	
 	public final String material;
-
-    protected float damageVsEntity;
 	
 	public AliquoHammer(String material)
 	{
@@ -81,7 +79,7 @@ public class AliquoHammer extends ItemHammerBase
 		toolMaterial = stat;
 		setMaxDamage(stat.getMaxUses());
 		efficiencyOnProperMaterial = stat.getEfficiencyOnProperMaterial();
-		damageVsEntity = 3 + stat.getDamageVsEntity();
+		//damageVsEntity = 3 + stat.getDamageVsEntity();
 	}
 	
 	@Override 

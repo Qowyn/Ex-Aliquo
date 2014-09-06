@@ -4,7 +4,7 @@ import io.drakon.pulsar.pulse.Handler;
 import io.drakon.pulsar.pulse.Pulse;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import exaliquo.ExAliquo;
-import exaliquo.bridges.TConstruct.TCUtil;
+import exaliquo.bridges.tconstruct.TCUtil;
 import exaliquo.data.Configurations;
 import exaliquo.data.CrucibleUtil;
 

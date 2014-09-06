@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import tconstruct.library.crafting.Smeltery;
 import exaliquo.ExAliquo;
-import exaliquo.bridges.ArsMagica.ArsMagicaBridge;
-import exaliquo.bridges.TConstruct.TConstructBridge;
+import exaliquo.bridges.arsmagica.ArsMagicaBridge;
+import exaliquo.bridges.tconstruct.TConstructBridge;
 import exaliquo.data.ModIDs.Info;
 
 @Pulse(id = ArsMagica_Tinker.PULSE_ID, modsRequired = ArsMagica_Tinker.REQUIRED_MODS)

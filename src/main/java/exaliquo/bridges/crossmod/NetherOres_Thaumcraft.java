@@ -5,7 +5,7 @@ import io.drakon.pulsar.pulse.Pulse;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
-import exaliquo.bridges.Thaumcraft.ThaumcraftBridge;
+import exaliquo.bridges.thaumcraft.ThaumcraftBridge;
 import exaliquo.data.Configurations;
 //import powercrystals.netherores.NetherOresCore;
 

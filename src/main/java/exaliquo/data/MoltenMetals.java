@@ -1,7 +1,7 @@
 package exaliquo.data;
 
 import cpw.mods.fml.common.Loader;
-import exaliquo.bridges.TConstruct.TConstructBridge;
+import exaliquo.bridges.tconstruct.TConstructBridge;
 import tconstruct.TConstruct;
 
 public class MoltenMetals
