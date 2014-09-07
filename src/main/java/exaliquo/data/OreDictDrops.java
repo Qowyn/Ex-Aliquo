@@ -9,13 +9,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import exaliquo.Registries;
-import exaliquo.data.ModIDs.Info;
 import exnihilo.registries.HammerRegistry;
 import exnihilo.registries.SieveRegistry;
 
 public class OreDictDrops
 {
-	private static Block[] overworld = { Blocks.gravel, Blocks.sand, ModIDs.getBlock(Info.dust) };
+	private static Block[] overworld = { Blocks.gravel, Blocks.sand, ENContent.dust };
 	private static Block[] nether = { Blocks.netherrack, Blocks.soul_sand };
 	private static Block[] end = { Blocks.end_stone };
 	private static Block[] sands = { Blocks.sand };

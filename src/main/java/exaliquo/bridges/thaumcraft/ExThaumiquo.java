@@ -1,21 +1,21 @@
 package exaliquo.bridges.thaumcraft;
 
+import static exaliquo.data.ModIDs.getBlock;
+import static exaliquo.data.ModIDs.getItem;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -28,30 +28,30 @@ import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategoryList;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
-import thaumcraft.api.wands.WandRod;
-import static exaliquo.data.ModIDs.getBlock;
-import static exaliquo.data.ModIDs.getItem;
-import exaliquo.Registries;
+import cpw.mods.fml.common.registry.GameRegistry;
 import exaliquo.ExAliquo;
+import exaliquo.Registries;
 import exaliquo.data.Configurations;
+import exaliquo.data.ENContent;
 import exaliquo.data.ModIDs.Info;
+import exnihilo.registries.OreRegistry;
 
 public class ExThaumiquo
 {
 	
 	protected static void initThaumiquo()
 	{
-		/*addWorkbenchRecipes();
+		addWorkbenchRecipes();
 		addCrucibleRecipes();
 		addArcaneRecipes();
 		addInfusionRecipes();
-		addAspectstoNihilo();
+		addAspectsToNihilo();
 		addPages();
 		addResearch();
 		if (Configurations.harderWands)
 		{
 			changePrimalWands();
-		}*/
+		}
 	}
 	
 	static Object findRecipe(String key) {
@@ -184,78 +184,78 @@ public class ExThaumiquo
 	static void addInfusionRecipes()
 	{
 		if (Configurations.runichax)
-		{/*
-			ConfigResearch.recipes.put("Greatwood1", ThaumcraftApi.addInfusionCraftingRecipe("GREATWOOD",
+		{
+			ThaumcraftApi.addInfusionCraftingRecipe("GREATWOOD",
 					new ItemStack(getBlock(Info.thaumplants), 1, 0),
 					10,
 					new AspectList().add(Aspect.TREE, 128).add(Aspect.AIR, 64).add(Aspect.EARTH, 64).add(Aspect.FIRE, 64).add(Aspect.WATER, 64).add(Aspect.ORDER, 64).add(Aspect.ENTROPY, 64),
-					new ItemStack(Block.sapling, 1, 3),
+					new ItemStack(Blocks.sapling, 1, 3),
 					new ItemStack[] {
-					new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2), 
-					new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getItem(Info.witchbucket), 1, 0), 
-					new ItemStack(getBlock(Info.thaumplants), 1, 3), new ItemStack(getItem(Info.witchbucket), 1, 0)
-			}));
+					new ItemStack(ENContent.bucketWitchwater), new ItemStack(ENContent.bucketWitchwater), new ItemStack(getBlock(Info.thaumplants), 1, 2), 
+					new ItemStack(ENContent.bucketWitchwater), new ItemStack(ENContent.bucketWitchwater), new ItemStack(ENContent.bucketWitchwater),
+					new ItemStack(getBlock(Info.thaumplants), 1, 3), new ItemStack(ENContent.bucketWitchwater)
+			});
 			
-			ConfigResearch.recipes.put("Greatwood2", ThaumcraftApi.addInfusionCraftingRecipe("GREATWOOD",
+			ThaumcraftApi.addInfusionCraftingRecipe("GREATWOOD",
 					new ItemStack(getBlock(Info.thaumplants), 1, 0),
 					10,
 					new AspectList().add(Aspect.TREE, 128).add(Aspect.AIR, 64).add(Aspect.EARTH, 64).add(Aspect.FIRE, 64).add(Aspect.WATER, 64).add(Aspect.ORDER, 64).add(Aspect.ENTROPY, 64),
-					new ItemStack(Block.sapling, 1, 3),
+					new ItemStack(Blocks.sapling, 1, 3),
 					new ItemStack[] {
-					new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 3), 
-					new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getItem(Info.witchbucket), 1, 0), new ItemStack(getItem(Info.witchbucket), 1, 0), 
-					new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(getItem(Info.witchbucket), 1, 0)
-			}));*/
+					new ItemStack(ENContent.bucketWitchwater), new ItemStack(ENContent.bucketWitchwater), new ItemStack(getBlock(Info.thaumplants), 1, 3), 
+					new ItemStack(ENContent.bucketWitchwater), new ItemStack(ENContent.bucketWitchwater), new ItemStack(ENContent.bucketWitchwater), 
+					new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(ENContent.bucketWitchwater)
+			});
 		}
-		/*
+
 		if (Configurations.silverwoodSwitch == 0)
 		{
-			ConfigResearch.recipes.put("Silverwood",ThaumcraftApi.addInfusionCraftingRecipe("SILVERWOOD1",
+			ThaumcraftApi.addInfusionCraftingRecipe("SILVERWOOD1",
 					new ItemStack(getBlock(Info.thaumplants), 1, 1),
 					15,
 					new AspectList().add(Aspect.EXCHANGE, 96).add(Aspect.MAGIC, 96).add(Aspect.CRYSTAL, 96).add(Aspect.TREE, 192),
 					new ItemStack(getItem(Info.nodejar), 1, 0),
 					new ItemStack[] { 
-						new ItemStack(Item.netherStar, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(Block.blockDiamond, 1, 0),
-						new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(Item.netherStar, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2),
-						new ItemStack(Block.blockDiamond, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2)
-			}));
+						new ItemStack(Items.nether_star, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(Blocks.diamond_block, 1, 0),
+						new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(Items.nether_star, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2),
+						new ItemStack(Blocks.diamond_block, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 2)
+			});
 		}
 		else if (Configurations.silverwoodSwitch >= 1)
 		{
-			ConfigResearch.recipes.put("Silverwood",ThaumcraftApi.addInfusionCraftingRecipe("SILVERWOOD2",
+			ThaumcraftApi.addInfusionCraftingRecipe("SILVERWOOD2",
 					new ItemStack(getBlock(Info.thaumplants), 1, 1),
 					12,
 					new AspectList().add(Aspect.EXCHANGE, 64).add(Aspect.MAGIC, 64).add(Aspect.CRYSTAL, 64).add(Aspect.TREE, 128),
 					new ItemStack(getItem(Info.nodejar), 1, 0),
 					new ItemStack[] { 
-						new ItemStack(Item.netherStar, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 4), new ItemStack(Block.blockDiamond, 1, 0),
-						new ItemStack(getBlock(Info.thaumplants), 1, 4), new ItemStack(Item.netherStar, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 4),
-						new ItemStack(Block.blockDiamond, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 4)
-			}));
-		}*/
+						new ItemStack(Items.nether_star, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 4), new ItemStack(Blocks.diamond_block, 1, 0),
+						new ItemStack(getBlock(Info.thaumplants), 1, 4), new ItemStack(Items.nether_star, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 4),
+						new ItemStack(Blocks.diamond_block, 1, 0), new ItemStack(getBlock(Info.thaumplants), 1, 4)
+			});
+		}
 	}
 
 	static void addCrucibleRecipes()
 	{
-		//ConfigResearch.recipes.put("Shimmerleaf", ThaumcraftApi.addCrucibleRecipe("SHIMMERLEAF", new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(Block.plantRed, 1, 0), new AspectList().add(Aspect.MAGIC, 4).add(Aspect.EXCHANGE, 4).add(Aspect.PLANT, 4).add(Aspect.POISON, 4)));
-		//ConfigResearch.recipes.put("Cinderpearl", ThaumcraftApi.addCrucibleRecipe("CINDERPEARL", new ItemStack(getBlock(Info.thaumplants), 1, 3), new ItemStack(Block.plantYellow, 1, 0), new AspectList().add(Aspect.MAGIC, 4).add(Aspect.EXCHANGE, 4). add(Aspect.PLANT, 4).add(Aspect.FIRE, 4)));
+		ThaumcraftApi.addCrucibleRecipe("SHIMMERLEAF", new ItemStack(getBlock(Info.thaumplants), 1, 2), new ItemStack(Blocks.red_flower, 1, 0), new AspectList().add(Aspect.MAGIC, 4).add(Aspect.EXCHANGE, 4).add(Aspect.PLANT, 4).add(Aspect.POISON, 4));
+		ThaumcraftApi.addCrucibleRecipe("CINDERPEARL", new ItemStack(getBlock(Info.thaumplants), 1, 3), new ItemStack(Blocks.yellow_flower, 1, 0), new AspectList().add(Aspect.MAGIC, 4).add(Aspect.EXCHANGE, 4). add(Aspect.PLANT, 4).add(Aspect.FIRE, 4));
 	}
 	
 	static void addArcaneRecipes()
-	{/*
-	    ConfigResearch.recipes.put("Skyfilter", ThaumcraftApi.addArcaneCraftingRecipe("SKYFILTER", new ItemStack(getItem(Info.resources), 1, 8), new AspectList().add(Aspect.ORDER, 5).add(Aspect.WATER, 5), new Object[] { "mmm", "imi", "mmm", 'i', Item.ingotGold, 'm', new ItemStack(getItem(Info.mesh), 1, 0) }));
+	{
+	    ThaumcraftApi.addArcaneCraftingRecipe("SKYFILTER", new ItemStack(getItem(Info.resources), 1, 8), new AspectList().add(Aspect.ORDER, 5).add(Aspect.WATER, 5), new Object[] { "mmm", "imi", "mmm", 'i', Items.gold_ingot, 'm', new ItemStack(ENContent.mesh) });
 	    if (Configurations.runichax)
 	    {
-	    	ConfigResearch.recipes.put("SkyMatrix", ThaumcraftApi.addArcaneCraftingRecipe("SKYMATRIX", new ItemStack(getBlock(Info.devices), 1, 2), new AspectList().add(Aspect.AIR, 10).add(Aspect.EARTH, 10).add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.ORDER, 10).add(Aspect.ENTROPY, 10), new Object[] { "bcb", "cec", "bcb", 'b', new ItemStack(getBlock(Info.cosmetics), 1, 6), 'c', new ItemStack(getBlock(Info.cluster), 1, 6), 'e', Item.enderPearl }));
+	    	ThaumcraftApi.addArcaneCraftingRecipe("SKYMATRIX", new ItemStack(getBlock(Info.devices), 1, 2), new AspectList().add(Aspect.AIR, 10).add(Aspect.EARTH, 10).add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.ORDER, 10).add(Aspect.ENTROPY, 10), new Object[] { "bcb", "cec", "bcb", 'b', new ItemStack(getBlock(Info.cosmetics), 1, 6), 'c', new ItemStack(getBlock(Info.cluster), 1, 6), 'e', Items.ender_pearl });
 	    }
 	    else
 	    {
-	    	ConfigResearch.recipes.put("Greatwood1", ThaumcraftApi.addArcaneCraftingRecipe("GREATWOOD", new ItemStack(getBlock(Info.thaumplants), 1, 0), new AspectList().add(Aspect.AIR, 25).add(Aspect.EARTH, 25).add(Aspect.FIRE, 25).add(Aspect.WATER, 25).add(Aspect.ORDER, 25).add(Aspect.ENTROPY, 25), new Object[] { "www", "csl", "www", 'w', getItem(Info.witchbucket), 'c', new ItemStack(getBlock(Info.thaumplants), 1, 3), 'l', new ItemStack(getBlock(Info.thaumplants),1, 2), 's', new ItemStack(Block.sapling, 1, 3) }));
-	    	ConfigResearch.recipes.put("Greatwood2", ThaumcraftApi.addArcaneCraftingRecipe("GREATWOOD", new ItemStack(getBlock(Info.thaumplants), 1, 0), new AspectList().add(Aspect.AIR, 25).add(Aspect.EARTH, 25).add(Aspect.FIRE, 25).add(Aspect.WATER, 25).add(Aspect.ORDER, 25).add(Aspect.ENTROPY, 25), new Object[] { "www", "lsc", "www", 'w', getItem(Info.witchbucket), 'c', new ItemStack(getBlock(Info.thaumplants), 1, 3), 'l', new ItemStack(getBlock(Info.thaumplants),1, 2), 's', new ItemStack(Block.sapling, 1, 3) }));
+	    	ThaumcraftApi.addArcaneCraftingRecipe("GREATWOOD", new ItemStack(getBlock(Info.thaumplants), 1, 0), new AspectList().add(Aspect.AIR, 25).add(Aspect.EARTH, 25).add(Aspect.FIRE, 25).add(Aspect.WATER, 25).add(Aspect.ORDER, 25).add(Aspect.ENTROPY, 25), new Object[] { "www", "csl", "www", 'w', ENContent.bucketWitchwater, 'c', new ItemStack(getBlock(Info.thaumplants), 1, 3), 'l', new ItemStack(getBlock(Info.thaumplants),1, 2), 's', new ItemStack(Blocks.sapling, 1, 3) });
+	    	ThaumcraftApi.addArcaneCraftingRecipe("GREATWOOD", new ItemStack(getBlock(Info.thaumplants), 1, 0), new AspectList().add(Aspect.AIR, 25).add(Aspect.EARTH, 25).add(Aspect.FIRE, 25).add(Aspect.WATER, 25).add(Aspect.ORDER, 25).add(Aspect.ENTROPY, 25), new Object[] { "www", "lsc", "www", 'w', ENContent.bucketWitchwater, 'c', new ItemStack(getBlock(Info.thaumplants), 1, 3), 'l', new ItemStack(getBlock(Info.thaumplants),1, 2), 's', new ItemStack(Blocks.sapling, 1, 3) });
 	    }
-	    ConfigResearch.recipes.put("ObsidianTotem", ThaumcraftApi.addArcaneCraftingRecipe("OBSIDIANTOTEM", new ItemStack(getBlock(Info.cosmetics), 2, 0), new AspectList().add(Aspect.EARTH, 2).add(Aspect.FIRE, 2), new Object[] { " i ", "oeo", " i ", 'i', new ItemStack(Item.dyePowder, 1, 0), 'e', Item.enderPearl, 'o', new ItemStack(getBlock(Info.cosmetics), 1, 1) } ));
-	*/}
+	    ThaumcraftApi.addArcaneCraftingRecipe("OBSIDIANTOTEM", new ItemStack(getBlock(Info.cosmetics), 2, 0), new AspectList().add(Aspect.EARTH, 2).add(Aspect.FIRE, 2), new Object[] { " i ", "oeo", " i ", 'i', new ItemStack(Items.dye, 1, 0), 'e', Items.ender_pearl, 'o', new ItemStack(getBlock(Info.cosmetics), 1, 1) } );
+	}
 
 	static void addWorkbenchRecipes()
 	{
@@ -268,120 +268,167 @@ public class ExThaumiquo
 		List<IRecipe> irecipe = CraftingManager.getInstance().getRecipeList();
 		//ConfigResearch.recipes.put(name, irecipe.get(irecipe.size() -1));
 	}
-
-	static void addAspectstoNihilo() 
+	
+	static void registerObjectTag(Block block, AspectList aspects)
 	{
-		/*ThaumcraftApi.registerObjectTag(getIDs(Info.ironore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.STONE, 1).add(Aspect.EARTH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.ironore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.ironore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.goldore), 0, new AspectList().add(Aspect.METAL, 2).add(Aspect.STONE, 1).add(Aspect.EARTH, 1).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.goldore), 1, new AspectList().add(Aspect.METAL, 2).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.goldore), 2, new AspectList().add(Aspect.METAL, 2).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.copperore), 0, new AspectList().add(Aspect.METAL, 2).add(Aspect.STONE, 1).add(Aspect.EARTH, 1).add(Aspect.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.copperore), 1, new AspectList().add(Aspect.METAL, 2).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1).add(Aspect.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.copperore), 2, new AspectList().add(Aspect.METAL, 2).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.tinore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.tinore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 2).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.tinore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 2).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silverore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silverore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 2).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silverore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 2).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.leadore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.leadore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 2).add(Aspect.ORDER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.leadore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 2).add(Aspect.ORDER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nickelore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.STONE, 1).add(Aspect.VOID, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nickelore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.VOID, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nickelore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.VOID, 1));
+		if (block != null)
+		{
+			ThaumcraftApi.registerObjectTag(new ItemStack(block), aspects);
+		}
+	}
+	
+	static void registerObjectTag(Block block, int meta, AspectList aspects)
+	{
+		if (block != null)
+		{
+			ThaumcraftApi.registerObjectTag(new ItemStack(block, 1, meta), aspects);
+		}
+	}
+	
+	static void registerObjectTag(Item item, AspectList aspects)
+	{
+		if (item != null)
+		{
+			ThaumcraftApi.registerObjectTag(new ItemStack(item), aspects);
+		}
+	}
+	
+	static void registerObjectTag(Item item, int damage, AspectList aspects)
+	{
+		if (item != null)
+		{
+			ThaumcraftApi.registerObjectTag(new ItemStack(item, 1, damage), aspects);
+		}
+	}
+
+	static void addAspectsToNihilo() 
+	{
+		registerObjectTag(OreRegistry.getGravel("iron"), new AspectList().add(Aspect.METAL, 3).add(Aspect.EARTH, 2));
+		registerObjectTag(OreRegistry.getSand("iron"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1));
+		registerObjectTag(OreRegistry.getDust("iron"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("gold"), new AspectList().add(Aspect.METAL, 2).add(Aspect.EARTH, 2).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getSand("gold"), new AspectList().add(Aspect.METAL, 2).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getDust("gold"), new AspectList().add(Aspect.METAL, 2).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.GREED, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("copper"), new AspectList().add(Aspect.METAL, 2).add(Aspect.EARTH, 2).add(Aspect.EXCHANGE, 1));
+		registerObjectTag(OreRegistry.getSand("copper"), new AspectList().add(Aspect.METAL, 2).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1).add(Aspect.EXCHANGE, 1));
+		registerObjectTag(OreRegistry.getDust("copper"), new AspectList().add(Aspect.METAL, 2).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("tin"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getSand("tin"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 2).add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getDust("tin"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 2).add(Aspect.CRYSTAL, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("silver"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getSand("silver"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 2).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getDust("silver"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 2).add(Aspect.GREED, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("lead"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 1));
+		registerObjectTag(OreRegistry.getSand("lead"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 2).add(Aspect.ORDER, 1));
+		registerObjectTag(OreRegistry.getDust("lead"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 2).add(Aspect.ORDER, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("nickel"), new AspectList().add(Aspect.METAL, 3).add(Aspect.EARTH, 1).add(Aspect.VOID, 1));
+		registerObjectTag(OreRegistry.getSand("nickel"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.VOID, 1));
+		registerObjectTag(OreRegistry.getDust("nickel"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.VOID, 1));
 		
 		ThaumcraftApi.registerObjectTag("orePlatinum", new AspectList().merge(Aspect.METAL, 2).merge(Aspect.GREED, 1).merge(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.platinumore), 0, new AspectList().add(Aspect.METAL, 2).add(Aspect.GREED, 1).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.platinumore), 1, new AspectList().add(Aspect.METAL, 2).add(Aspect.GREED, 1).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.platinumore), 2, new AspectList().add(Aspect.METAL, 2).add(Aspect.AIR, 1).add(Aspect.GREED, 1).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.osmiumore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.STONE, 1).add(Aspect.EARTH, 1).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.osmiumore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1).add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.osmiumore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getGravel("platinum"), new AspectList().add(Aspect.METAL, 2).add(Aspect.GREED, 1).add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getSand("platinum"), new AspectList().add(Aspect.METAL, 2).add(Aspect.GREED, 1).add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getDust("platinum"), new AspectList().add(Aspect.METAL, 2).add(Aspect.AIR, 1).add(Aspect.GREED, 1).add(Aspect.CRYSTAL, 1));
+		
+		registerObjectTag(OreRegistry.getGravel("osmium"), new AspectList().add(Aspect.METAL, 3).add(Aspect.EARTH, 2).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getSand("osmium"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1).add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getDust("osmium"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1).add(Aspect.GREED, 1));
 		
 		ThaumcraftApi.registerObjectTag("oreAluminum", new AspectList().merge(Aspect.METAL, 2).merge(Aspect.MECHANISM, 1).merge(Aspect.AIR, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.aluminumore), 0, new AspectList().add(Aspect.METAL, 3).add(Aspect.STONE, 1).add(Aspect.EARTH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.aluminumore), 1, new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.aluminumore), 2, new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1));
-	
+		registerObjectTag(OreRegistry.getGravel("aluminum"), new AspectList().add(Aspect.METAL, 3).add(Aspect.EARTH, 2));
+		registerObjectTag(OreRegistry.getSand("aluminum"), new AspectList().add(Aspect.METAL, 3).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1));
+		registerObjectTag(OreRegistry.getDust("aluminum"), new AspectList().add(Aspect.METAL, 3).add(Aspect.AIR, 1).add(Aspect.ENTROPY, 1));
+
+		registerObjectTag(OreRegistry.getBroken("iron"), new AspectList().add(Aspect.METAL, 1));
+		registerObjectTag(OreRegistry.getCrushed("iron"), new AspectList().add(Aspect.METAL, 1));
+		registerObjectTag(OreRegistry.getPowdered("iron"), new AspectList().add(Aspect.METAL, 1).add(Aspect.AIR,1));
 		
-		ThaumcraftApi.registerObjectTag(getIDs(Info.irongrav), 0, new AspectList().add(Aspect.METAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.ironsand), 0, new AspectList().add(Aspect.METAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.irondust), 0, new AspectList().add(Aspect.METAL, 1).add(Aspect.AIR,1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.goldgrav), 0, new AspectList().add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.goldsand), 0, new AspectList().add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.golddust), 0, new AspectList().add(Aspect.GREED, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("gold"), new AspectList().add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getCrushed("gold"), new AspectList().add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getPowdered("gold"), new AspectList().add(Aspect.GREED, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotCopper", new AspectList().merge(Aspect.METAL, 3).add(Aspect.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.coppergrav), 0, new AspectList().add(Aspect.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.coppersand), 0, new AspectList().add(Aspect.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.copperdust), 0, new AspectList().add(Aspect.EXCHANGE, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("copper"), new AspectList().add(Aspect.EXCHANGE, 1));
+		registerObjectTag(OreRegistry.getCrushed("copper"), new AspectList().add(Aspect.EXCHANGE, 1));
+		registerObjectTag(OreRegistry.getPowdered("copper"), new AspectList().add(Aspect.EXCHANGE, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotTin", new AspectList().merge(Aspect.METAL, 3).add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.tingrav), 0, new AspectList().add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.tinsand), 0, new AspectList().add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.tindust), 0, new AspectList().add(Aspect.CRYSTAL, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("tin"), new AspectList().add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getCrushed("tin"), new AspectList().add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getPowdered("tin"), new AspectList().add(Aspect.CRYSTAL, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotSilver", new AspectList().merge(Aspect.METAL, 3).merge(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silvergrav), 0, new AspectList().add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silversand), 0, new AspectList().add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silverdust), 0, new AspectList().add(Aspect.GREED, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("silver"), new AspectList().add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getCrushed("silver"), new AspectList().add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getPowdered("silver"), new AspectList().add(Aspect.GREED, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotLead", new AspectList().merge(Aspect.METAL, 3).merge(Aspect.ORDER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.leadgrav), 0, new AspectList().add(Aspect.ORDER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.leadsand), 0, new AspectList().add(Aspect.ORDER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.leaddust), 0, new AspectList().add(Aspect.ORDER, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("lead"), new AspectList().add(Aspect.ORDER, 1));
+		registerObjectTag(OreRegistry.getCrushed("lead"), new AspectList().add(Aspect.ORDER, 1));
+		registerObjectTag(OreRegistry.getPowdered("lead"), new AspectList().add(Aspect.ORDER, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotNickel", new AspectList().merge(Aspect.METAL, 3).merge(Aspect.VOID, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nickelgrav), 0, new AspectList().add(Aspect.VOID, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nickelsand), 0, new AspectList().add(Aspect.VOID, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nickeldust), 0, new AspectList().add(Aspect.VOID, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("nickel"), new AspectList().add(Aspect.VOID, 1));
+		registerObjectTag(OreRegistry.getCrushed("nickel"), new AspectList().add(Aspect.VOID, 1));
+		registerObjectTag(OreRegistry.getPowdered("nickel"), new AspectList().add(Aspect.VOID, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotPlatinum", new AspectList().merge(Aspect.METAL, 3).merge(Aspect.GREED, 2).merge(Aspect.CRYSTAL, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.platinumgrav), 0, new AspectList().add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.platinumsand), 0, new AspectList().add(Aspect.CRYSTAL, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.platinumdust), 0, new AspectList().add(Aspect.CRYSTAL, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("platinum"), new AspectList().add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getCrushed("platinum"), new AspectList().add(Aspect.CRYSTAL, 1));
+		registerObjectTag(OreRegistry.getPowdered("platinum"), new AspectList().add(Aspect.CRYSTAL, 1).add(Aspect.AIR, 1));
 		
-		ThaumcraftApi.registerObjectTag(getIDs(Info.osmiumgrav), 0, new AspectList().add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.osmiumsand), 0, new AspectList().add(Aspect.GREED, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.osmiumdust), 0, new AspectList().add(Aspect.GREED, 1).add(Aspect.AIR, 1));
+		registerObjectTag(OreRegistry.getBroken("osmium"), new AspectList().add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getCrushed("osmium"), new AspectList().add(Aspect.GREED, 1));
+		registerObjectTag(OreRegistry.getPowdered("osmium"), new AspectList().add(Aspect.GREED, 1).add(Aspect.AIR, 1));
 		
 		ThaumcraftApi.registerObjectTag("ingotAluminum", new AspectList().add(Aspect.METAL, 4).add(Aspect.AIR, 2).add(Aspect.MECHANISM, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.aluminumgrav), 0, new AspectList().add(Aspect.AIR, 1).add(Aspect.MECHANISM, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.aluminumsand), 0, new AspectList().add(Aspect.AIR, 1).add(Aspect.MECHANISM, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.aluminumdust), 0, new AspectList().add(Aspect.AIR, 2).add(Aspect.MECHANISM, 1));
+		registerObjectTag(OreRegistry.getBroken("aluminum"), new AspectList().add(Aspect.AIR, 1).add(Aspect.MECHANISM, 1));
+		registerObjectTag(OreRegistry.getCrushed("aluminum"), new AspectList().add(Aspect.AIR, 1).add(Aspect.MECHANISM, 1));
+		registerObjectTag(OreRegistry.getPowdered("aluminum"), new AspectList().add(Aspect.AIR, 2).add(Aspect.MECHANISM, 1));
 		
-		ThaumcraftApi.registerObjectTag(getIDs(Info.beetrap), 0, new AspectList().add(Aspect.BEAST, 1).add(Aspect.MECHANISM, 3).add(Aspect.PLANT, 8));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.scentedtrap), 0, new AspectList().add(Aspect.BEAST, 1).add(Aspect.TRAP, 3).add(Aspect.SEED, 8));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silkleaves), 0, new AspectList().add(Aspect.PLANT, 1).add(Aspect.CLOTH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.witchwater), 0, new AspectList().add(Aspect.WATER, 1).add(Aspect.POISON, 3).add(Aspect.DEATH, 3).add(Aspect.TAINT, 3).add(Aspect.DARKNESS, 3));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.woodbarrel), 0, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.woodbarrel), 1, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.woodbarrel), 2, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.woodbarrel), 3, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.stonebarrel), 0, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.grass), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.spores), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.cactusseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 3).add(Aspect.WATER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.caneseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1).add(Aspect.WATER, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.taterseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.ENTROPY, 1).add(Aspect.CROP, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.carrotseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.AIR, 1).add(Aspect.CROP, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.oakseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.zebraseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.spruceseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.jungleseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.rubberseed), 0, new AspectList().add(Aspect.SEED, 1).add(Aspect.PLANT, 1).add(Aspect.SLIME, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.silkworm), 0, new AspectList().add(Aspect.BEAST, 1).add(Aspect.CLOTH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.nomworm), 0, new AspectList().add(Aspect.BEAST, 1).add(Aspect.HUNGER, 1).add(Aspect.FLESH, 1));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.witchbucket), 0, new AspectList().add(Aspect.METAL, 8).add(Aspect.VOID, 1).add(Aspect.WATER, 1).add(Aspect.POISON, 3).add(Aspect.DEATH, 3).add(Aspect.TAINT, 3).add(Aspect.DARKNESS, 3));
-		ThaumcraftApi.registerObjectTag(getIDs(Info.stones), 0, new AspectList().add(Aspect.STONE, 1));*/
+		registerObjectTag(ENContent.beeTrap, new AspectList().add(Aspect.BEAST, 1).add(Aspect.MECHANISM, 3).add(Aspect.PLANT, 8));
+		registerObjectTag(ENContent.beeTrapTreated, new AspectList().add(Aspect.BEAST, 1).add(Aspect.TRAP, 3).add(Aspect.PLANT, 8));
+		registerObjectTag(ENContent.infestedLeaves, new AspectList().add(Aspect.PLANT, 1).add(Aspect.CLOTH, 1));
+		registerObjectTag(ENContent.witchwater, new AspectList().add(Aspect.WATER, 1).add(Aspect.POISON, 3).add(Aspect.DEATH, 3).add(Aspect.TAINT, 3).add(Aspect.DARKNESS, 3));
+		registerObjectTag(ENContent.barrelWood, 0, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.barrelWood, 1, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.barrelWood, 2, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.barrelWood, 3, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.barrelWood, 4, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.barrelWood, 5, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.barrelStone, new AspectList().add(Aspect.WATER, 2).add(Aspect.VOID, 2));
+		registerObjectTag(ENContent.seedGrass, new AspectList().add(Aspect.PLANT, 2).add(Aspect.LIFE, 1));
+		registerObjectTag(ENContent.spores, new AspectList().add(Aspect.PLANT, 2).add(Aspect.LIFE, 1));
+		registerObjectTag(ENContent.seedCactus, 0, new AspectList().add(Aspect.PLANT, 4).add(Aspect.WATER, 1));
+		registerObjectTag(ENContent.seedSugerCane, 0, new AspectList().add(Aspect.PLANT, 2).add(Aspect.WATER, 1));
+		registerObjectTag(ENContent.seedPotato, 0, new AspectList().add(Aspect.PLANT, 1).add(Aspect.ENTROPY, 1).add(Aspect.CROP, 1));
+		registerObjectTag(ENContent.seedCarrot, 0, new AspectList().add(Aspect.PLANT, 1).add(Aspect.AIR, 1).add(Aspect.CROP, 1));
+		registerObjectTag(ENContent.seedOak, 0, new AspectList().add(Aspect.PLANT, 2));
+		registerObjectTag(ENContent.seedBirch, 0, new AspectList().add(Aspect.PLANT, 2));
+		registerObjectTag(ENContent.seedSpruce, 0, new AspectList().add(Aspect.PLANT, 2));
+		registerObjectTag(ENContent.seedJungle, 0, new AspectList().add(Aspect.PLANT, 2));
+		registerObjectTag(ENContent.seedRubber, 0, new AspectList().add(Aspect.PLANT, 2).add(Aspect.SLIME, 1));
+		registerObjectTag(ENContent.silkworm, 0, new AspectList().add(Aspect.BEAST, 1).add(Aspect.CLOTH, 1));
+		registerObjectTag(ENContent.silkwormCooked, 0, new AspectList().add(Aspect.BEAST, 1).add(Aspect.HUNGER, 1).add(Aspect.FLESH, 1));
+		registerObjectTag(ENContent.bucketWitchwater, 0, new AspectList().add(Aspect.METAL, 8).add(Aspect.VOID, 1).add(Aspect.WATER, 1).add(Aspect.POISON, 3).add(Aspect.DEATH, 3).add(Aspect.TAINT, 3).add(Aspect.DARKNESS, 3));
+		registerObjectTag(ENContent.stone, 0, new AspectList().add(Aspect.EARTH, 1));
 	}
 
 	static void addPages()
 	{
-		//ResearchCategories.registerCategory("SKYCHEMY", new ResourceLocation("exaliquo:textures/misc/thaumicpage.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_researchback.png"));
+		ResearchCategories.registerCategory("SKYCHEMY", new ResourceLocation("exaliquo:textures/misc/thaumicpage.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_researchback.png"));
+	}
+	
+	static Object getRecipe(String name)
+	{
+		ThaumcraftApi.getCraftingRecipes();
+		return null;
 	}
 	
 	static void changePrimalWands()
@@ -406,16 +453,16 @@ public class ExThaumiquo
 				ThaumcraftApi.getInfusionRecipe(new ItemStack(getItem(Info.wands), 1, 100))
 				}; //Obsidian, Ice, Quartz, Reed, Blaze, Bone, Silverwood, Primal
 		
-		/*InfusionRecipe[] newInfusion = {
-				new InfusionRecipe(oldInfusion[0].research, oldInfusion[0].recipeOutput, oldInfusion[0].instability, oldInfusion[0].aspects, new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 3), new ItemStack(Block.obsidian) }),
-				new InfusionRecipe(oldInfusion[1].research, oldInfusion[1].recipeOutput, oldInfusion[1].instability, oldInfusion[1].aspects, new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 2), new ItemStack(Block.ice) }),
-				new InfusionRecipe(oldInfusion[2].research, oldInfusion[2].recipeOutput, oldInfusion[2].instability, oldInfusion[2].aspects, new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 4), new ItemStack(Block.blockNetherQuartz) }),
-				new InfusionRecipe(oldInfusion[3].research, oldInfusion[3].recipeOutput, oldInfusion[3].instability, oldInfusion[3].aspects, new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 0), new ItemStack(Item.reed) }),
-				new InfusionRecipe(oldInfusion[4].research, oldInfusion[4].recipeOutput, oldInfusion[4].instability, oldInfusion[4].aspects, new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 1), new ItemStack(Item.blazeRod) }),
-				new InfusionRecipe(oldInfusion[5].research, oldInfusion[5].recipeOutput, oldInfusion[5].instability, oldInfusion[5].aspects, new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 5), new ItemStack(Item.bone) }),
-				new InfusionRecipe(oldInfusion[6].research, oldInfusion[6].recipeOutput, oldInfusion[6].instability, oldInfusion[6].aspects, new ItemStack(getItem(Info.magicwood), 1, 1), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.wands), 1, 5), new ItemStack(getItem(Info.wands), 1, 6), new ItemStack(getItem(Info.wands), 1, 3), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack(getItem(Info.wands), 1, 1), new ItemStack(getItem(Info.wands), 1, 4), new ItemStack(getItem(Info.wands), 1, 7) }),
-				new InfusionRecipe(oldInfusion[7].research, oldInfusion[7].recipeOutput, oldInfusion[7].instability, oldInfusion[7].aspects, new ItemStack(getItem(Info.wands), 1, 52), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 15), new ItemStack(getItem(Info.wands), 1, 51), new ItemStack(getItem(Info.wands), 1, 53), new ItemStack(getItem(Info.wands), 1, 54), new ItemStack(getItem(Info.resources), 1, 15), new ItemStack(getItem(Info.wands), 1, 55), new ItemStack(getItem(Info.wands), 1, 56), new ItemStack(getItem(Info.wands), 1, 57) })
-		};*/
+		InfusionRecipe[] newInfusion = {
+				new InfusionRecipe(oldInfusion[0].getResearch(), oldInfusion[0].getRecipeOutput(), oldInfusion[0].getInstability(), oldInfusion[0].getAspects(), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 3), new ItemStack(Blocks.obsidian) }),
+				new InfusionRecipe(oldInfusion[1].getResearch(), oldInfusion[1].getRecipeOutput(), oldInfusion[1].getInstability(), oldInfusion[1].getAspects(), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 2), new ItemStack(Blocks.ice) }),
+				new InfusionRecipe(oldInfusion[2].getResearch(), oldInfusion[2].getRecipeOutput(), oldInfusion[2].getInstability(), oldInfusion[2].getAspects(), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 4), new ItemStack(Blocks.quartz_block) }),
+				new InfusionRecipe(oldInfusion[3].getResearch(), oldInfusion[3].getRecipeOutput(), oldInfusion[3].getInstability(), oldInfusion[3].getAspects(), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 0), new ItemStack(Items.reeds) }),
+				new InfusionRecipe(oldInfusion[4].getResearch(), oldInfusion[4].getRecipeOutput(), oldInfusion[4].getInstability(), oldInfusion[4].getAspects(), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 1), new ItemStack(Items.blaze_rod) }),
+				new InfusionRecipe(oldInfusion[5].getResearch(), oldInfusion[5].getRecipeOutput(), oldInfusion[5].getInstability(), oldInfusion[5].getAspects(), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.shard), 1, 5), new ItemStack(Items.bone) }),
+				new InfusionRecipe(oldInfusion[6].getResearch(), oldInfusion[6].getRecipeOutput(), oldInfusion[6].getInstability(), oldInfusion[6].getAspects(), new ItemStack(getItem(Info.magicwood), 1, 1), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 14), new ItemStack(getItem(Info.wands), 1, 5), new ItemStack(getItem(Info.wands), 1, 6), new ItemStack(getItem(Info.wands), 1, 3), new ItemStack(getItem(Info.wands), 1, 0), new ItemStack(getItem(Info.wands), 1, 1), new ItemStack(getItem(Info.wands), 1, 4), new ItemStack(getItem(Info.wands), 1, 7) }),
+				new InfusionRecipe(oldInfusion[7].getResearch(), oldInfusion[7].getRecipeOutput(), oldInfusion[7].getInstability(), oldInfusion[7].getAspects(), new ItemStack(getItem(Info.wands), 1, 52), new ItemStack[] { new ItemStack(getItem(Info.resources), 1, 15), new ItemStack(getItem(Info.wands), 1, 51), new ItemStack(getItem(Info.wands), 1, 53), new ItemStack(getItem(Info.wands), 1, 54), new ItemStack(getItem(Info.resources), 1, 15), new ItemStack(getItem(Info.wands), 1, 55), new ItemStack(getItem(Info.wands), 1, 56), new ItemStack(getItem(Info.wands), 1, 57) })
+		};
 		
 		IArcaneRecipe[] oldArcane = {
 				getArcaneRecipe("ROD_greatwood_staff"),
@@ -470,26 +517,26 @@ public class ExThaumiquo
 			e.printStackTrace();
 		}
 		
-		/*ResearchItem[] infusionResearch = {
-				copyResearch(ResearchCategories.getResearch(infusionName[0])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_obsidian.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodObsidian")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[1])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_ice.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodIce")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[2])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_quartz.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodQuartz")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[3])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_reed.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodReed")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[4])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_blaze.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodBlaze")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[5])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_bone.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodBone")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[6])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_silverwood.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodSilverwood")) }),
-				copyResearch(ResearchCategories.getResearch(infusionName[7])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_primal_staff.1"), new ResearchPage((InfusionRecipe)ConfigResearch.recipes.get("WandRodPrimalStaff")) })
+		ResearchItem[] infusionResearch = {
+				copyResearch(ResearchCategories.getResearch(infusionName[0])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_obsidian.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodObsidian")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[1])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_ice.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodIce")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[2])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_quartz.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodQuartz")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[3])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_reed.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodReed")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[4])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_blaze.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodBlaze")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[5])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_bone.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodBone")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[6])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_silverwood.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodSilverwood")) }),
+				copyResearch(ResearchCategories.getResearch(infusionName[7])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_primal_staff.1"), new ResearchPage((InfusionRecipe)getRecipe("WandRodPrimalStaff")) })
 		};
 		
 		ResearchItem[] arcaneResearch = {
-				copyResearch(ResearchCategories.getResearch(arcaneName[0])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_greatwood_staff.1"), new ResearchPage("tc.research_page.ROD_greatwood_staff.2"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodGreatwoodStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[1])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_obsidian_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodObsidianStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[2])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_ice_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodIceStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[3])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_quartz_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodQuartzStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[4])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_reed_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodReedStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[5])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_blaze_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodBlazeStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[6])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_bone_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodBoneStaff")) }),
-				copyResearch(ResearchCategories.getResearch(arcaneName[7])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_silverwood_staff.1"), new ResearchPage((IArcaneRecipe)ConfigResearch.recipes.get("WandRodSilverwoodStaff")) })
+				copyResearch(ResearchCategories.getResearch(arcaneName[0])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_greatwood_staff.1"), new ResearchPage("tc.research_page.ROD_greatwood_staff.2"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodGreatwoodStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[1])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_obsidian_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodObsidianStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[2])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_ice_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodIceStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[3])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_quartz_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodQuartzStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[4])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_reed_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodReedStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[5])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_blaze_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodBlazeStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[6])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_bone_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodBoneStaff")) }),
+				copyResearch(ResearchCategories.getResearch(arcaneName[7])).setPages(new ResearchPage[] { new ResearchPage("tc.research_page.ROD_silverwood_staff.1"), new ResearchPage((IArcaneRecipe)getRecipe("WandRodSilverwoodStaff")) })
 		};
 		
 		for (int i = 0; i < infusionResearch.length; i++)
@@ -501,7 +548,7 @@ public class ExThaumiquo
 		{
 			removeResearch(arcaneName[i]);
 			arcaneResearch[i].registerResearchItem();
-		}*/
+		}
 	}
 	
 	private static void removeResearch(String research)
@@ -532,7 +579,7 @@ public class ExThaumiquo
 		ItemStack icon = research.icon_item;
 		
 		ResearchItem override = new ResearchItem(research.key, research.category, research.tags, research.displayColumn, research.displayRow, research.getComplexity(), research.icon_item);
-		//override.setPages(research.getPages());
+		override.setPages(research.getPages());
 		if (research.isAutoUnlock()) override.setSpecial();
 		if (research.isConcealed()) override.setStub();
 		if (research.isHidden()) override.setHidden();

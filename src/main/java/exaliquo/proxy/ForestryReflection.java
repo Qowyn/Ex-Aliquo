@@ -16,8 +16,7 @@ public class ForestryReflection
     
     public static final String MOD_ID = "Forestry";
     
-	public static boolean extras = false;
-	public static boolean forestryrefcheck = true;
+	public static boolean forestryrefcheck = false;
 	private static Class forestryLeafBlock = null;
 	private static Method drops = null;
 	private static final Class[] spawnLeafParams = { World.class, int.class, int.class, int.class, int.class, float.class, boolean.class };
@@ -33,7 +32,7 @@ public class ForestryReflection
 			{
 				drops = forestryLeafBlock.getDeclaredMethod("spawnLeafDrops", spawnLeafParams);
 				drops.setAccessible(true);
-				extras = true;
+				forestryrefcheck = true;
 			}
 		}
 		catch (Exception e)
@@ -43,7 +42,7 @@ public class ForestryReflection
 		}
 	}
 
-	public static void ForestryLeaves(World world, Block block, int meta, int X, int Y, int Z)
+	public static void handleForestryLeaves(World world, Block block, int meta, int X, int Y, int Z)
 	{
 		if ((forestryLeafBlock != null) && (drops != null)) 
 		{

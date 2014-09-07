@@ -1,10 +1,8 @@
 package exaliquo.items;
 
-import static exaliquo.data.ModIDs.getBlock;
-import static exaliquo.data.ModIDs.getItem;
-import static exaliquo.proxy.ForestryReflection.ForestryLeaves;
+import static exaliquo.proxy.ForestryReflection.forestryrefcheck;
+import static exaliquo.proxy.ForestryReflection.handleForestryLeaves;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -15,17 +13,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import exaliquo.data.ModIDs.Info;
+import exaliquo.data.ENContent;
 import exnihilo.data.ModData;
 import exnihilo.items.ItemCrook;
 
 public class GoldCrook extends ItemCrook
 {
-	private Class forestryLeafBlock = null;
-	private Method drops = null;
-	private boolean extras = false;
-	private boolean forestryrefcheck = true;
-	
 	public GoldCrook()
 	{
 		super(ToolMaterial.GOLD);
@@ -57,14 +50,13 @@ public class GoldCrook extends ItemCrook
 		{
 			if (!world.isRemote)
 			{
-				/*if (forestryrefcheck && ModsLoaded.isForestryLoaded)
+				if (forestryrefcheck)
 				{
-					ForestryLeaves(world, block, meta, X, Y, Z);
-					ForestryLeaves(world, block, meta, X, Y, Z);
-					ForestryLeaves(world, block, meta, X, Y, Z);
-				}*/
-
-				if (!extras)
+					handleForestryLeaves(world, block, meta, X, Y, Z);
+					handleForestryLeaves(world, block, meta, X, Y, Z);
+					handleForestryLeaves(world, block, meta, X, Y, Z);
+				}
+				else
 				{
 					block.dropBlockAsItem(world, X, Y, Z, meta, 0);
 					block.dropBlockAsItem(world, X, Y, Z, meta, 0);
@@ -73,18 +65,18 @@ public class GoldCrook extends ItemCrook
 
 				if (ModData.ALLOW_SILKWORMS && world.rand.nextInt(75) == 0)
 				{
-					world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(getItem(Info.silkworm), 1, 0)));
+					world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(ENContent.silkworm)));
 				}
 			}
 		}
 
-		if (block == getBlock(Info.silkleaves))
+		if (block == ENContent.infestedLeaves)
 		{
 			if (!world.isRemote)
 			{
 				if (ModData.ALLOW_SILKWORMS && world.rand.nextInt(10) == 0)
 				{
-					world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(getItem(Info.silkworm), 1, 0)));
+					world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(ENContent.silkworm)));
 				}
 			}
 		}

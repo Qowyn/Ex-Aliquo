@@ -1,9 +1,6 @@
 package exaliquo.bridges.tconstruct;
 
-import static exaliquo.data.ModIDs.getBlock;
-import static exaliquo.data.ModIDs.getItem;
-import static exaliquo.proxy.ForestryReflection.ForestryLeaves;
-import static exaliquo.proxy.ForestryReflection.extras;
+import static exaliquo.proxy.ForestryReflection.handleForestryLeaves;
 import static exaliquo.proxy.ForestryReflection.forestryrefcheck;
 
 import java.util.ArrayList;
@@ -20,7 +17,7 @@ import net.minecraft.world.World;
 import tconstruct.library.ActiveToolMod;
 import tconstruct.library.tools.AbilityHelper;
 import tconstruct.library.tools.ToolCore;
-import exaliquo.data.ModIDs.Info;
+import exaliquo.data.ENContent;
 import exnihilo.data.ModData;
 import exnihilo.registries.HammerRegistry;
 import exnihilo.registries.helpers.Smashable;
@@ -42,26 +39,25 @@ public class SkyModifiers extends ActiveToolMod
 	
 			if (!world.isRemote && block != null && block.isLeaves(world, X, Y, Z))
 			{
-				/*if (forestryrefcheck && ModsLoaded.isForestryLoaded)
+				if (forestryrefcheck)
 				{
-					ForestryLeaves(world, block, meta, X, Y, Z);
-				}*/
-				
-				if (!extras)
+					handleForestryLeaves(world, block, meta, X, Y, Z);
+				}
+				else
 				{
 					block.dropBlockAsItem(world, X, Y, Z, meta, 0);
 				}
 		
 				if (ModData.ALLOW_SILKWORMS && world.rand.nextInt(130) == 0)
 				{
-					world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(getItem(Info.silkworm), 1, 0)));
+					world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(ENContent.silkworm)));
 				}
 					
-				if (block == getBlock(Info.silkleaves))
+				if (block == ENContent.infestedLeaves)
 				{
 					if (ModData.ALLOW_SILKWORMS && world.rand.nextInt(20) == 0)
 					{
-						world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(getItem(Info.silkworm), 1, 0)));
+						world.spawnEntityInWorld(new EntityItem(world, X + 0.5D, Y + 0.5D, Z + 0.5D, new ItemStack(ENContent.silkworm)));
 					}
 				}
 					

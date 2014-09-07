@@ -1,11 +1,9 @@
 package exaliquo.bridges.tconstruct;
 
-import static exaliquo.data.ModIDs.getBlock;
 import static net.minecraftforge.fluids.FluidRegistry.getFluid;
 import net.minecraft.init.Blocks;
 import exaliquo.data.Configurations;
 import exaliquo.data.CrucibleUtil;
-import exaliquo.data.ModIDs.Info;
 import exnihilo.registries.CrucibleRegistry;
 
 public class Smelting
@@ -40,6 +38,6 @@ public class Smelting
 		
 		CrucibleRegistry.register(Blocks.sand, 0, 2000, getFluid("glass.molten"), 1000, Blocks.sand);
 		CrucibleRegistry.register(Blocks.glass, 0, 2000, getFluid("glass.molten"), 1000, Blocks.glass);
-		CrucibleRegistry.register(getBlock(Info.stones), 0, 2, getFluid("stone.seared"), 2, Blocks.cobblestone);
+		//CrucibleRegistry.register(getBlock(Info.stones), 0, 2, getFluid("stone.seared"), 2, Blocks.cobblestone);
 	}
 }
